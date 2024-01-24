@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!-- 
+  Copyright (c) 2023 PAL Robotics S.L. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+ -->
+<robot xmlns:xacro="http://ros.org/wiki/xacro"
+       name="talos" >
+
+  <xacro:macro name="talos_ros2_control" params="use_sim:=^|false robot_model:=arm_right">
+
+    <xacro:arg name="robot_model" default="$(arg robot_model)"/> <!-- full_fake_grippers, 
+                                        full_no_grippers, full_v1, full_v2, lower_body_torso_head, lower_body -->
+
+  <xacro:include filename="$(find talos_description)/urdf/sensors/ftsensor.ros2_control.xacro" />
+    <xacro:include filename="$(find talos_description)/urdf/arm/arm.ros2_control.xacro" />
+    <xacro:include filename="$(find talos_description)/urdf/arm/wrist.ros2_control.xacro"/>
+    <xacro:include filename="$(find talos_description)/urdf/gripper/gripper.ros2_control.xacro" />
+
+
+    <ros2_control name="ros2_control_talos_system" type="system">
+      <hardware>
+        <xacro:if value="$(arg use_sim)">
+          <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </xacro:if>
+        <xacro:unless value="$(arg use_sim)">
+          <plugin>robot_control/RobotControl</plugin>
+        </xacro:unless>
+      </hardware>
+
+
+      <!-- IMU 
+      <xacro:if value="$(arg use_sim)">
+        <xacro:ros2_control_imu name="base_imu_sensor"/>
+      </xacro:if>-->
+
+    <xacro:if value="${robot_model == 'arm_right'}">
+
+      <!-- arm right-->
+      <xacro:ros2_control_arm name="arm" side="right" number="1"/>
+      <xacro:ros2_control_arm name="arm" side="right" number="2"/>
+      <xacro:ros2_control_arm name="arm" side="right" number="3"/>
+      <xacro:ros2_control_arm name="arm" side="right" number="4"/>
+ 
+     </xacro:if>
+
+ 
+
+    <!-- Wrist -->
+    <xacro:ros2_control_wrist name="arm" side="right" number="5"/>
+    <xacro:ros2_control_wrist name="arm" side="right" number="6"/>
+    <xacro:ros2_control_wrist name="arm" side="right" number="7"/>
+
+    <!-- Gripper right-->
+    <xacro:ros2_control_gripper name="gripper_right"/>
+
+     <!-- Force Torque sensor-->
+    <xacro:ros2_control_force_torque_sensor name="wrist_right_ft_sensor"/>
+ 
+    </ros2_control>
+  </xacro:macro>
+</robot>
