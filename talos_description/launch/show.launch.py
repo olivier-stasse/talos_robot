@@ -25,7 +25,7 @@ def generate_launch_description():
     )
 
     robot_state_publisher = include_launch_py_description(
-        "talos_description", ["launch", "robot_state_publisher.launch.py"]
+        "talos_description", ["launch", "robot_state_publisher.launch.py"],
     )
 
     start_joint_pub_gui = Node(

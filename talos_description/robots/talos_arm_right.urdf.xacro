@@ -26,6 +26,8 @@
 
   <xacro:include filename="$(find talos_description)/urdf/sensors/ftsensor.urdf.xacro" />
   <xacro:include filename="$(find talos_description)/urdf/gripper/gripper.urdf.xacro" />
+  
+  <xacro:include filename="$(find talos_description_calibration)/urdf/calibration/calibration_constants.urdf.xacro" />
 
 
   <xacro:arg name="use_sim" default="false"/>

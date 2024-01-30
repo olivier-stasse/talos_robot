@@ -31,7 +31,7 @@ def declare_args(context, *args, **kwargs):
     )
 
     robot_model = DeclareLaunchArgument(
-        "robot_model", default_value="arm_right", description="Robot model"
+        "robot_model", default_value="full_v1", description="Robot model"
     )
     foot_collision = DeclareLaunchArgument(
         "foot_collision", default_value="default", description="Collision foot"
@@ -93,6 +93,12 @@ def launch_setup(context, *args, **kwargs):
                 "use_sim": read_launch_argument("use_sim_time", context),
                 "test": read_launch_argument("test", context),
                 "robot_model": read_launch_argument("robot_model", context),
+                "enable_crane": read_launch_argument("enable_crane", context),
+                "foot_collision": read_launch_argument("foot_collision", context),
+                "disable_gazebo_camera": read_launch_argument(
+                    "disable_gazebo_camera", context
+                ),
+                "head_type": read_launch_argument("head_type", context),
             },
         )
     }
