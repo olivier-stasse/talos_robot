@@ -13,38 +13,41 @@
         xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
         xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
 
-  <xacro:if value="$(arg enable_crane)">
-    <xacro:include filename="$(find talos_description)/urdf/crane/crane.urdf.xacro" />
-  </xacro:if>
-
-  <xacro:include filename="$(find talos_description)/urdf/torso/torso.urdf.xacro" />
-  <xacro:include filename="$(find talos_description)/urdf/head/head.urdf.xacro" />
-  <xacro:include filename="$(find talos_description)/urdf/arm/arm_specifics_v2.urdf.xacro" />
-  <xacro:include filename="$(find talos_description)/urdf/arm/arm.urdf.xacro" />
   <xacro:include filename="$(find talos_description)/urdf/sensors/ftsensor.urdf.xacro" />
   <xacro:include filename="$(find talos_description)/urdf/leg/leg.urdf.xacro" />
   <xacro:include filename="$(find talos_description)/urdf/leg/foot_collision_$(arg foot_collision).urdf.xacro" />
   <xacro:include filename="$(find talos_description_inertial)/urdf/inertial.xacro" />
   <xacro:include filename="$(find talos_description)/urdf/extras/addons.urdf.xacro" />
-
-  <xacro:talos_torso name="torso" />
-
+  
   <xacro:arg name="use_sim" default="false"/>
   <xacro:arg name="multiple" default="false"/>
-
   <xacro:property name="is_multiple" value="$(arg multiple)" />
 
-  <xacro:if value="$(arg enable_crane)">
-    <xacro:crane parent="torso_2_link"/>
-  </xacro:if>
-
-  <xacro:talos_head name="head" parent="torso_2_link" disable_gazebo_camera="$(arg disable_gazebo_camera)"/>
-
-  <xacro:talos_arm name="arm" parent="torso_2_link" side="left" reflect="1"/>
-  <xacro:talos_arm name="arm" parent="torso_2_link" side="right" reflect="-1"/>
-
-  <xacro:ft_sensor name="wrist" parent="arm_right_7_link" side="right" reflect="1"  />
-  <xacro:ft_sensor name="wrist" parent="arm_left_7_link"  side="left"  reflect="-1" />
+  <!--************************-->
+  <!--        BASE_LINK       -->
+  <!--************************-->
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.08222 0.00838 -0.07261" rpy="0.00000 0.00000 0.00000"/>
+      <mass value="13.53810"/>
+      <inertia ixx="0.06989000000" ixy="-0.00011700000" ixz="0.00023000000"
+               iyy="0.03998200000" iyz="-0.00132500000"
+               izz="0.08234500000"/>
+    </inertial>
+   <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://talos_description/meshes/torso/base_link.STL" scale="1 1 1"/>
+      </geometry>
+      <material name="LightGrey" />
+    </visual>
+   <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://talos_description/meshes/torso/base_link_collision.STL" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
 
   <xacro:talos_leg prefix="left"  reflect="1" />
   <xacro:talos_leg prefix="right" reflect="-1" />
@@ -56,7 +59,7 @@
   <xacro:include filename="$(find talos_description)/gazebo/gazebo.urdf.xacro" />
   <!-- Materials for visualization -->
   <xacro:include filename="$(find talos_description)/urdf/materials.urdf.xacro" />
-  
+
   <!-- ROS 2 Control-->
   <xacro:include filename="$(find talos_description)/ros2_control/ros2_control.urdf.xacro" />
   <xacro:talos_ros2_control use_sim="$(arg use_sim)"/>

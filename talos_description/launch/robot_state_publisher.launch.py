@@ -1,4 +1,4 @@
-# Copyright (c) 2022 PAL Robotics S.L. All rights reserved.
+# Copyright (c) 2024 PAL Robotics S.L. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -26,13 +26,17 @@ from launch_ros.actions import Node
 
 
 def declare_args(context, *args, **kwargs):
+
     sim_time_arg = DeclareLaunchArgument(
         "use_sim_time", default_value="False", description="Use simulation time"
     )
 
     robot_model = DeclareLaunchArgument(
-        "robot_model", default_value="full_v1", description="Robot model"
+        "robot_model", default_value="full_v2", description="Robot model"
     )
+    flexibility = DeclareLaunchArgument(
+        "flexibility", default_value="False", description="Enable the flexibility for the leg")
+
     foot_collision = DeclareLaunchArgument(
         "foot_collision", default_value="default", description="Collision foot"
     )
@@ -57,7 +61,8 @@ def declare_args(context, *args, **kwargs):
         description="Enable/Disable camera in simulation",
     )
 
-    test = DeclareLaunchArgument("test", default_value="False", description="test")
+    test = DeclareLaunchArgument(
+        "test", default_value="False", description="test")
 
     default_configuration_type = DeclareLaunchArgument(
         "default_configuration_type",
@@ -74,6 +79,7 @@ def declare_args(context, *args, **kwargs):
         test,
         default_configuration_type,
         sim_time_arg,
+        flexibility,
     ]
 
 
@@ -99,6 +105,8 @@ def launch_setup(context, *args, **kwargs):
                     "disable_gazebo_camera", context
                 ),
                 "head_type": read_launch_argument("head_type", context),
+                "flexibility": read_launch_argument("flexibility", context),
+                "default_configuration_type": read_launch_argument("default_configuration_type", context),
             },
         )
     }

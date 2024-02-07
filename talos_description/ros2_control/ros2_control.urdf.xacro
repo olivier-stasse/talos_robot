@@ -17,10 +17,7 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro"
        name="talos" >
 
-  <xacro:macro name="talos_ros2_control" params="use_sim:=^|false robot_model:=arm_right">
-
-    <xacro:arg name="robot_model" default="$(arg robot_model)"/> <!-- full_fake_grippers, 
-                                        full_no_grippers, full_v1, full_v2, lower_body_torso_head, lower_body -->
+  <xacro:macro name="talos_ros2_control" params="use_sim:=^|false">
 
     <xacro:include filename="$(find talos_description)/urdf/sensors/ftsensor.ros2_control.xacro" />
     <xacro:include filename="$(find talos_description)/urdf/arm/arm.ros2_control.xacro" />
@@ -32,8 +29,7 @@
     <!-- Calibration offsets -->
     <xacro:include filename="$(find talos_description_calibration)/urdf/calibration/calibration_constants.urdf.xacro" />
 
-    <xacro:property name="leg_reduction"    value="1.0" />
-    <xacro:property name="flexibility"    value="false" />
+    <xacro:property name="leg_reduction"    value="1.0" /><!-- i don't like here-->
 
     <ros2_control name="ros2_control_talos_system" type="system">
       <hardware>
@@ -52,12 +48,10 @@
       </xacro:if>
 
       <!-- arm right-->
-      <xacro:if value="${robot_model in ['arm_right', 'full_fake_grippers']}">
-        <xacro:ros2_control_arm name="arm" side="right" number="1"/>
-        <xacro:ros2_control_arm name="arm" side="right" number="2"/>
-        <xacro:ros2_control_arm name="arm" side="right" number="3"/>
-        <xacro:ros2_control_arm name="arm" side="right" number="4"/>
-      </xacro:if>
+      <xacro:ros2_control_arm name="arm" side="right" number="1"/>
+      <xacro:ros2_control_arm name="arm" side="right" number="2"/>
+      <xacro:ros2_control_arm name="arm" side="right" number="3"/>
+      <xacro:ros2_control_arm name="arm" side="right" number="4"/>
 
       <!-- Wrist right -->
       <xacro:ros2_control_wrist name="arm" side="right" number="5"/>

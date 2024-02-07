@@ -100,6 +100,6 @@
 
 <!-- ROS 2 Control-->
 <xacro:include filename="$(find talos_description)/ros2_control/ros2_control.urdf.xacro" />
-<xacro:talos_ros2_control use_sim="$(arg use_sim)" robot_model="full_fake_grippers"/>
+<xacro:talos_ros2_control use_sim="$(arg use_sim)"/>
 
 </robot>
