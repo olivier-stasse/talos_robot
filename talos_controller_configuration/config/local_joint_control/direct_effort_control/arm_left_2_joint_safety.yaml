@@ -1,0 +1,4 @@
+ros__parameters:
+	max_distance_impulse: 150.0
+	
+	
