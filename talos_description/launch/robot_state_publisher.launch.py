@@ -117,6 +117,7 @@ def launch_setup(context, *args, **kwargs):
         output="both",
         parameters=[
             {"use_sim_time": LaunchConfiguration("use_sim_time")},
+            {"publish_frequency": "100.0"},
             robot_description,
         ],
     )

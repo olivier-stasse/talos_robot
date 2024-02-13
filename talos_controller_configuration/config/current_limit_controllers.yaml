@@ -1,18 +1,16 @@
 torso_current_limit_controller:
   ros__parameters:
-    type: "pal_ros_controllers/CurrentLimitController"
     actuators:
       - torso_1_motor
       - torso_2_motor
 
-  head_current_limit_controller:
-    type: "pal_ros_controllers/CurrentLimitController"
+head_current_limit_controller:
     actuators:
       - head_1_motor
       - head_2_motor
 
-  left_arm_current_limit_controller:
-    type: "pal_ros_controllers/CurrentLimitController"
+arm_left_current_limit_controller:
+  ros__parameters:
     actuators:
       - arm_left_1_motor
       - arm_left_2_motor
@@ -22,8 +20,8 @@ torso_current_limit_controller:
       - arm_left_6_motor
       - arm_left_7_motor
 
-  right_arm_current_limit_controller:
-    type: "pal_ros_controllers/CurrentLimitController"
+arm_right_current_limit_controller:
+  ros__parameters:
     actuators:
       - arm_right_1_motor
       - arm_right_2_motor
@@ -33,18 +31,18 @@ torso_current_limit_controller:
       - arm_right_6_motor
       - arm_right_7_motor
 
-  left_gripper_current_limit_controller:
-    type: "pal_ros_controllers/CurrentLimitController"
+gripper_left_current_limit_controller:
+  ros__parameters:
     actuators:
       - gripper_left_motor
 
-  right_gripper_current_limit_controller:
-    type: "pal_ros_controllers/CurrentLimitController"
+gripper_right_current_limit_controller:
+  ros__parameters:
     actuators:
       - gripper_right_motor
 
-  left_leg_current_limit_controller:
-    type: "pal_ros_controllers/CurrentLimitController"
+leg_left_current_limit_controller:
+  ros__parameters:
     actuators:
       - leg_left_1_motor
       - leg_left_2_motor
@@ -53,8 +51,8 @@ torso_current_limit_controller:
       - leg_left_5_motor
       - leg_left_6_motor
 
-  right_leg_current_limit_controller:
-    type: "pal_ros_controllers/CurrentLimitController"
+leg_right_current_limit_controller:
+  ros__parameters:
     actuators:
       - leg_right_1_motor
       - leg_right_2_motor
