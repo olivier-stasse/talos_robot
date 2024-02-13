@@ -1,0 +1,455 @@
+play_motion2:
+  ros__parameters:
+    controllers: [right_arm_controller, left_arm_controller, left_leg_controller, right_leg_controller,
+    head_controller, torso_controller, gripper_left_controller, gripper_right_controller]
+    motions:
+      hands_front:
+        joints: [torso_1_joint, torso_2_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint,
+               arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint]
+        positions: [0.0, 0.0, -0.0, -0.252, 0.285, -1.591, -1.57, 0.0, 0.0, 0.0, 0.252, -0.285, -1.591, 1.57, 0.0, 0.0,
+                    0.0, -0.2, 1.57, -0.252, -1.57, -1.591, -1.57, 0.0, 0.0, -1.57, 0.252, 1.57, -1.591, 1.57, 0.0, 0.0]
+        times_from_start: [0.0, 3.0]
+    hands_front_lift:
+      joints: [torso_1_joint, torso_2_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint,
+               arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint]
+        positions: [0.0, -0.2, 1.57, -0.252, -1.57, -1.591, -1.57, 0.0, 0.0, -1.57, 0.252, 1.57, -1.591, 1.57, 0.0, 0.0,
+                    0.0, -0.2, 1.57, -0.252, -1.57, -2.191, -1.57, 0.0, 0.0, -1.57, 0.252, 1.57, -2.191, 1.57, 0.0, 0.0,
+                    0.0, -0.2, 1.57, -0.252, -1.57, -1.591, -1.57, 0.0, 0.0, -1.57, 0.252, 1.57, -1.591, 1.57, 0.0, 0.0,
+                    0.0, -0.2, 1.57, -0.252, -1.57, -2.191, -1.57, 0.0, 0.0, -1.57, 0.252, 1.57, -2.191, 1.57, 0.0, 0.0,
+                    0.0, -0.2, 1.57, -0.252, -1.57, -1.591, -1.57, 0.0, 0.0, -1.57, 0.252, 1.57, -1.591, 1.57, 0.0, 0.0]
+        times_from_start: [0.0, 2.0, 4.0, 6.0, 8.0]
+    hands_up:
+      joints: [torso_1_joint, torso_2_joint,
+        arm_right_1_joint, arm_right_2_joint, arm_right_3_joint,
+        arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint,
+        arm_left_1_joint, arm_left_2_joint, arm_left_3_joint,
+        arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint]
+        positions: [0.0, 0.0, -0.0, -1.57, -1.57, -1.57, 0.0, -0.0, 0.0, 0.0, 1.57, 1.57, -1.57, 0.0, 0.0, 0.0]
+        times_from_start: [0.0]
+    home: # NOTE: arm_*_2_joint is nonzero!
+      joints: [torso_1_joint, torso_2_joint, head_1_joint, head_2_joint, arm_left_1_joint,
+        arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint,
+        arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint,
+        arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint,
+        gripper_left_joint, gripper_right_joint]
+        positions: [0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        times_from_start: [2.0]
+      meta:
+        name: Home
+        usage: posture
+        description: Both arms down and completely stretched.
+    home_legs:
+      joints: [leg_left_1_joint, leg_left_2_joint, leg_left_3_joint, leg_left_4_joint,
+               leg_left_5_joint, leg_left_6_joint,
+               leg_right_1_joint, leg_right_2_joint, leg_right_3_joint,leg_right_4_joint,
+               leg_right_5_joint, leg_right_6_joint]
+        positions: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        times_from_start: [5.0]
+    walk_pose:
+      joints: [torso_1_joint, torso_2_joint, head_1_joint, head_2_joint, arm_left_1_joint,
+        arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint,
+        arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint,
+        arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint,
+        gripper_left_joint, gripper_right_joint]
+        positions: [0.0, 0.05, 0.0, 0.0, 0.4, 0.24, -0.7, -1.45, 0.0, 0.0, 0.0, -0.4, -0.24, 0.7, -1.45, 0.0, 0.0, 0.0, 0.0, 0.0]
+        times_from_start: [2.0]
+      meta:
+        name: Walk pose
+        usage: posture
+        description: Both arms down and completely stretched.
+    interact:
+      joints: [torso_1_joint, torso_2_joint, head_1_joint, head_2_joint, arm_left_1_joint,
+        arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint,
+        arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint,
+        arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint,
+        gripper_left_joint, gripper_right_joint]
+          -0.25, 0.1, -0.6109, 0.0, 0.0, 0.0, 0.0, 0.0]
+        positions: [0.0, 0.0, 0.0, 0.0, -0.2, 0.25, -0.1, -0.6109, 0.0, 0.0, 0.0, 0.2]
+        times_from_start: [0.0]
+      meta:
+        name: Interact
+        usage: posture
+        description: Same posture as in Hands Down.
+    small_squat:
+      joints: [leg_left_4_joint, leg_right_3_joint, leg_right_5_joint, leg_left_5_joint,
+        leg_right_4_joint, leg_left_3_joint]
+        positions: [1.0, -0.5, -0.5, -0.5, 1.0, -0.5]
+        times_from_start: [0.0]
+    lift_weights:
+      joints: [head_1_joint, head_2_joint, torso_1_joint, torso_2_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, gripper_right_joint, gripper_left_joint]
+        positions: [-0.0, -0.0, 0.0, 0.002, -0.0, -0.252, 0.286, -1.588, -1.57, -0.003, 0.001, -0.0, 0.252, -0.286, -1.588, 1.57, 0.003, 0.001, -0.7, -0.7,
+                    -0.0, -0.0, 0.0, 0.001, -0.0, -0.252, 0.286, -1.588, -1.57, -0.003, 0.001, 0.0, 0.249, 0.097, -2.307, 1.57, 0.002, 0.001, -0.7, -0.7,
+                    -0.0, -0.0, 0.0, 0.002, -0.0, -0.252, 0.286, -1.588, -1.57, -0.003, 0.001, -0.0, 0.252, -0.286, -1.588, 1.57, 0.003, 0.001, -0.7, -0.7,
+                    -0.0, 0.0, -0.0, 0.001, 0.0, -0.249, -0.042, -2.306, -1.57, -0.003, 0.001, 0.0, 0.252, -0.286, -1.588, 1.57, 0.003, 0.001, -0.7, -0.7,
+                    -0.0, -0.0, 0.0, 0.002, -0.0, -0.252, 0.286, -1.588, -1.57, -0.003, 0.001, -0.0, 0.252, -0.286, -1.588, 1.57, 0.003, 0.001, -0.7, -0.7,
+                    0.0, 0.0, 0.0, 0.0, 0.0, -0.25, -0.0, 0.0, 0.0, 0.0, -0.0, -0.0, 0.25, 0.0, 0.0, -0.0, -0.0, -0.0, 0.0, 0.0]
+        times_from_start: [0.0, 2.0, 4.0, 6.0, 8.0, 10.0]
+    close_right_gripper:
+      joints: [gripper_right_joint]
+        positions: [-0.7]
+        times_from_start: [0.0]
+      meta:
+        name: Close Right Gripper
+        usage: action
+        description: Closes right gripper
+    open_right_gripper:
+      joints: [gripper_right_joint]
+        positions: [0.0]
+        times_from_start: [0.0]
+      meta:
+        name: Open Right Gripper
+        usage: action
+        description: Opens right gripper
+    close_left_gripper:
+      joints: [gripper_left_joint]
+        positions: [-0.7]
+        times_from_start: [0.0]
+      meta:
+        name: Close Left Gripper
+        usage: action
+        description: Closes right gripper
+    open_left_gripper:
+      joints: [gripper_left_joint]
+        positions: [0.0]
+        times_from_start: [0.0]
+      meta:
+        name: Open Left Gripper
+        usage: action
+        description: Opens left gripper
+    wave_left:
+      joints: [torso_1_joint, torso_2_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, gripper_right_joint, gripper_left_joint]
+        positions: [-0.0, -0.001, 0.0, -0.15, 0.0, -0.2, -0.0, -0.0, -0.0, 0.0, 0.148, -0.0, -0.2, 0.0, 0.001, -0.0, 0.0, 0.0,
+                    0.0, -0.001, -0.0, -0.15, 0.0, -0.2, -0.0, -0.0, -0.0, 0.314, 1.175, 0.927, -2.214, -0.0, 0.002, -0.001, 0.0, 0.0,
+                    0.0, -0.001, 0.0, -0.15, 0.0, -0.2, -0.0, -0.0, -0.0, 0.314, 1.174, 0.927, -1.741, -0.0, 0.002, 0.001, 0.0, -0.7,
+                    0.0, -0.001, -0.0, -0.15, 0.0, -0.2, -0.0, -0.0, -0.0, 0.314, 1.175, 0.927, -2.214, -0.0, 0.002, -0.001, 0.0, 0.0,
+                    -0.0, -0.001, -0.0, -0.15, 0.0, -0.2, -0.0, -0.0, -0.0, 0.0, 0.148, -0.0, -0.2, 0.0, 0.001, -0.0, 0.0, 0.0]
+        times_from_start: [0.0, 3.0, 4.0, 5.0, 8.0]
+    close_both_grippers:
+      joints: [gripper_left_joint, gripper_right_joint]
+        positions: [-0.7, -0.7]
+        times_from_start: [0.0]
+      meta:
+        name: Close Both Grippers
+        usage: action
+        description: Closes both grippers
+    open_both_grippers:
+      joints: [gripper_left_joint, gripper_right_joint]
+        positions: [0.0, 0.0]
+        times_from_start: [0.0]
+      meta:
+        name: Open Both Grippers
+        usage: action
+        description: Open both grippers
+    wave_both_arms:
+      joints: [torso_1_joint, torso_2_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, gripper_right_joint, gripper_left_joint]
+        positions: [-0.0, -0.001, 0.0, -0.15, 0.0, -0.2, -0.0, -0.0, -0.0, 0.0, 0.148, -0.0, -0.2, 0.0, 0.001, -0.0, 0.0, 0.0,
+                    0.0, -0.001, -0.314, -1.175, -0.927, -2.214, 0.0, 0.0, 0.0, 0.314, 1.175, 0.927, -2.214, -0.0, 0.002, -0.001, 0.0, 0.0,
+                    0.0, -0.001, -0.314, -1.174, -0.927, -1.741, 0.0, 0.0, 0.0, 0.314, 1.174, 0.927, -1.741, -0.0, 0.002, 0.001, -0.7, -0.7,
+                    0.0, -0.001, -0.314, -1.175, -0.927, -2.214, 0.0, 0.0, 0.0, 0.314, 1.175, 0.927, -2.214, -0.0, 0.002, -0.001, 0.0, 0.0,
+                    -0.0, -0.001, 0.0, -0.15, -0.0, -0.2, 0.0, 0.0, 0.0, 0.0, 0.148, -0.0, -0.2, 0.0, 0.001, -0.0, 0.0, 0.0]
+        times_from_start: [0.0, 3.0, 4.0, 5.0, 8.0]
+    test_arm_right:
+      joints: [torso_1_joint, torso_2_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, gripper_right_joint, gripper_left_joint]
+        positions: [0.0, 0.0, 0.0, -0.15, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.15, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+                    -0.0, -0.002, -0.464, -0.343, -0.0, -0.0, -0.0, 0.001, -0.0, -0.0, 0.148, 0.0, -0.0, 0.0, -0.001, 0.0, 0.001, -0.0,
+                    -0.0, 0.001, 1.508, -0.343, -0.0, -0.0, -0.0, 0.001, -0.0, -0.0, 0.148, 0.0, -0.001, 0.0, -0.001, 0.0, -0.0, 0.001,
+                    -0.0, 0.001, 1.508, -0.343, 2.238, -0.002, 0.0, -0.001, -0.001, -0.0, 0.148, 0.0, -0.001, 0.0, -0.001, 0.0, -0.0, -0.0,
+                    -0.0, 0.001, 1.508, -0.343, -2.339, 0.0, 0.0, -0.001, 0.001, -0.0, 0.148, 0.0, -0.001, 0.0, -0.001, -0.0, -0.001, -0.0,
+                    -0.0, 0.001, 1.508, -0.343, -2.347, -2.305, -0.0, -0.001, 0.002, -0.0, 0.148, 0.0, -0.001, 0.0, -0.001, -0.0, -0.0, -0.0,
+                    -0.0, -0.001, 0.482, -2.728, 1.247, -1.842, 0.0, -0.001, -0.003, 0.0, 0.148, 0.0, -0.0, 0.0, -0.001, 0.0, -0.0, -0.0,
+                    -0.0, 0.001, 0.482, -0.286, -0.437, -1.835, -0.0, 0.001, 0.003, -0.0, 0.148, 0.0, -0.001, 0.0, -0.001, 0.0, -0.0, -0.0,
+                    -0.0, 0.001, 0.482, -0.285, -0.439, -1.835, -2.382, 1.313, -0.653, -0.0, 0.148, 0.0, -0.001, 0.0, -0.001, 0.0, 0.0, 0.0,
+                    -0.0, 0.001, 0.482, -0.286, -0.439, -1.836, 2.422, -1.303, 0.646, -0.0, 0.148, 0.0, -0.001, 0.0, -0.001, 0.0, 0.0, -0.0,
+                    0.0, 0.0, 0.0, -0.15, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.15, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        times_from_start: [0.0, 4.0, 7.0, 10.0, 14.0, 17.0, 21.0, 23.0, 26.0, 29.0, 33.0]
+    test_arm_left:
+      joints: [torso_1_joint, torso_2_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, gripper_right_joint, gripper_left_joint]
+        positions: [0.0, 0.0, 0.0, -0.15, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.15, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+                    -0.0, -0.002, 0.0, -0.15, 0.0, 0.0, 0.0, 0.0, 0.0, 0.464, 0.343, -0.0, -0.0, -0.0, 0.001, -0.0, 0.001, -0.0,
+                    -0.0, 0.001, 0.0, -0.15, 0.0, 0.0, 0.0, 0.0, 0.0, -1.508, 0.343, -0.0, -0.0, -0.0, 0.001, -0.0, -0.0, 0.001,
+                    -0.0, 0.001, 0.0, -0.15, 0.0, 0.0, 0.0, 0.0, 0.0, -1.508, 0.343, -2.238, -0.002, 0.0, -0.001, -0.001, -0.0, -0.0,
+                    -0.0, 0.001, 0.0, -0.15, 0.0, 0.0, 0.0, 0.0, 0.0, -1.508, 0.343, 2.339, 0.0, 0.0, -0.001, 0.001, -0.001, -0.0,
+                    -0.0, 0.001, 0.0, -0.15, 0.0, 0.0, 0.0, 0.0, 0.0, -1.508, 0.343, 2.347, -2.305, -0.0, -0.001, 0.002, -0.0, -0.0,
+                    -0.0, -0.001, 0.0, -0.15, 0.0, 0.0, 0.0, 0.0, 0.0, -0.482, 2.728, -1.247, -1.842, 0.0, -0.001, -0.003, -0.0, -0.0,
+                    -0.0, 0.001, 0.0, -0.15, 0.0, 0.0, 0.0, 0.0, 0.0, -0.482, 0.286, 0.437, -1.835, -0.0, 0.001, 0.003, -0.0, -0.0,
+                    -0.0, 0.001, 0.0, -0.15, 0.0, 0.0, 0.0, 0.0, 0.0, -0.482, 0.285, 0.439, -1.835, 2.382, -1.313, -0.653, 0.0, 0.0,
+                    -0.0, 0.001, 0.0, -0.15, 0.0, 0.0, 0.0, 0.0, 0.0, -0.482, 0.286, 0.439, -1.836, -2.422, 1.303, 0.646, 0.0, -0.0,
+                    0.0, 0.0, 0.0, -0.15, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.15, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        times_from_start: [0.0, 4.0, 7.0, 10.0, 14.0, 17.0, 21.0, 23.0, 26.0, 29.0, 33.0]
+    test_head:
+      joints: [head_1_joint, head_2_joint]
+        positions: [-0.0, 0.0,
+                    -0.24, 0.0,
+                    0.77, 0.0,
+                    -0.0, -1.20,
+                    -0.0, 1.20,
+                    -0.0, 0.0]
+        times_from_start: [0.0, 2.0, 4.0, 6.0, 10.0, 12.0]
+    bow:
+      joints: [torso_1_joint, torso_2_joint, head_1_joint, head_2_joint, arm_left_1_joint,
+        arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint,
+        arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint,
+        arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint]
+        positions: [0.0, 0.0, 0.0, 0.0, 0.1, 0.25, -0.2, -0.6109, 0.0, 0.0, 0.0, -0.1, -0.25, 0.2, -0.6109, 0.0, 0.0, 0.0,
+                    0.0, 0.4, 0.3, 0.0, 0.25, 0.15, -0.0, -0.6109, 0.0, 0.0, 0.0, -0.25, -0.15, 0.0, -0.6109, 0.0, 0.0, 0.0,
+                    0.0, 0.4, 0.3, 0.0, 0.25, 0.15, -0.0, -0.6109, 0.0, 0.0, 0.0, -0.25, -0.15, 0.0, -0.6109, 0.0, 0.0, 0.0,
+                    0.0, 0.0, 0.0, 0.0, 0.1, 0.25, -0.2, -0.6109, 0.0, 0.0, 0.0, -0.1, -0.25, 0.2, -0.6109, 0.0, 0.0, 0.0]
+        times_from_start: [0.0, 1.5, 2.0, 3.25]
+      meta:
+        name: Bow
+        usage: greet
+        description: Makes a short reverence with both arms back.
+    center_head:
+      joints: [head_1_joint, head_2_joint]
+        positions: [0.0, 0.0]
+        times_from_start: [0.0]
+      meta:
+        name: Center Head
+        usage: posture
+        description: Moves only head to a centered posture.
+    look_around:
+      joints: [torso_1_joint, torso_2_joint, head_1_joint, head_2_joint, arm_left_1_joint,
+        arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint,
+        arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint,
+        arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint]
+        positions: [0.0, 0.0, 0.0, 0.0, 0.1, 0.35, -0.2, -1.4109, 0.0, 0.0, 0.0, -0.1, -0.35, 0.2, -1.4109, 0.0, 0.0, 0.0,
+                    0.0, 0.2, -0.2, 0.0, 0.25, 0.35, -0.0, -1.4109, 0.0, 0.0, 0.0, -0.25, -0.35, 0.0, -1.4109, 0.0, 0.0, 0.0,
+                    0.7, 0.2, -0.2, 0.0, 0.15, 0.35, -0.0, -1.2109, 0.0, 0.0, 0.0, -0.35, -0.35, 0.0, -1.6109, 0.0, 0.0, 0.0,
+                    0.0, 0.2, 0.2, 0.0, 0.2, 0.35, -0.0, -1.0109, 0.0, 0.0, 0.0, -0.2, -0.35, 0.0, -1.0109, 0.0, 0.0, 0.0,
+                    -0.7, 0.2, -0.2, 0.0, 0.35, 0.35, 0.0, -1.6109, 0.0, 0.0, 0.0, -0.15, -0.35, 0.0, -1.2109, 0.0, 0.0, 0.0,
+                    0.0, 0.0, 0.0, 0.0, 0.1, 0.25, -0.2, -0.6109, 0.0, 0.0, 0.0, -0.1, -0.25, 0.2, -0.6109, 0.0, 0.0, 0.0]
+        times_from_start: [0.0, 1.5, 3.5, 5.0, 6.5, 8.5]
+      meta:
+        name: look_around
+        usage: demonstration
+        description: turn torso and head from left to right.
+    reset_ft_wrist_pose:
+      joints: ['torso_1_joint', 'torso_2_joint', 'arm_right_1_joint', 'arm_right_2_joint', 'arm_right_3_joint', 'arm_right_4_joint', 'arm_right_5_joint', 'arm_right_6_joint', 'arm_right_7_joint', 'arm_left_1_joint', 'arm_left_2_joint', 'arm_left_3_joint', 'arm_left_4_joint', 'arm_left_5_joint', 'arm_left_6_joint', 'arm_left_7_joint']
+        positions: [0.0, 0.0, -0.0, -1.571, 1.571, -1.571, 0.0, 0.0, 0.0, -0.0, 1.571, -1.571, -1.571, 0.0, 0.0, 0.0,
+                    0.0, 0.0, -0.0, -1.571, 1.571, -1.571, 0.0, 0.0, 0.0, -0.0, 1.571, -1.571, -1.571, 0.0, 0.0, 0.0]
+        times_from_start: [0.0, 4.0]
+    arms_t:
+      joints: ['torso_1_joint', 'torso_2_joint', 'arm_right_1_joint', 'arm_right_2_joint', 'arm_right_3_joint', 'arm_right_4_joint', 'arm_right_5_joint', 'arm_right_6_joint', 'arm_right_7_joint', 'arm_left_1_joint', 'arm_left_2_joint', 'arm_left_3_joint', 'arm_left_4_joint', 'arm_left_5_joint', 'arm_left_6_joint', 'arm_left_7_joint']
+        positions: [0.0, 0.0, -0.0, -1.571, 1.571, 0.0, 0.0, 0.0, 0.0, -0.0, 1.571, -1.571, 0.0, 0.0, 0.0, 0.0]
+        times_from_start: [0.0]
+    alive_wrists:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, torso_1_joint, torso_2_joint]
+      meta:
+        name: Wrists
+        usage: alive
+        description: Small wrist movement
+    alive_look:
+      joints: [head_1_joint, head_2_joint, torso_1_joint, torso_2_joint]
+      meta:
+        name: Alive Look
+        usage: alive
+        description: Look around and nod
+    alive_left_stretch:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint, head_1_joint, head_2_joint, torso_1_joint, torso_2_joint]
+      meta:
+        name: Left Stretch
+        usage: alive
+        description: Stretch left arm
+    alive_right_stretch:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint, head_1_joint, head_2_joint, torso_1_joint, torso_2_joint]
+      meta:
+        name: Right Stretch
+        usage: alive
+        description: Stretch right arm
+    alive_wiggle_gripper:
+      joints: [gripper_left_joint, gripper_right_joint]
+      meta:
+        name: Wiggle Gripper
+        usage: alive
+        description: Wiggle gripper fingers
+    alive_look_around:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint, head_1_joint, head_2_joint, torso_1_joint, torso_2_joint]
+      meta:
+        name: Look Around
+        usage: alive
+        description: Look around using torso
+    alive_waiting_1:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint, torso_1_joint, torso_2_joint]
+      meta:
+        name: Alive Waiting 1
+        usage: alive
+        description: ""
+    alive_waiting_2:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint, torso_1_joint, torso_2_joint]
+      meta:
+        name: Alive Waiting 2
+        usage: alive
+        description: ""
+    alive_waiting_3:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint, torso_1_joint, torso_2_joint]
+      meta:
+        name: Alive Waiting 3
+        usage: alive
+        description: ""
+    wave:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint, torso_1_joint, torso_2_joint]
+      meta:
+        name: Wave
+        usage: salutation
+        description: Wave
+    look_nod:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint, head_1_joint, head_2_joint, torso_1_joint, torso_2_joint]
+      meta:
+        name: Look And Nod
+        usage: salutation
+        description: Look around and nod
+    move_wrists:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint, head_1_joint, head_2_joint, torso_1_joint, torso_2_joint]
+      meta:
+        name: Circle both wrist
+        usage: entertainment
+        description: Circle both wrists
+    egyptian:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint, head_1_joint, head_2_joint, torso_1_joint, torso_2_joint]
+      meta:
+        name: Egyptian pose
+        usage: entertainment
+        description: Dance like an egyptian
+    show_battery:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint, head_1_joint, head_2_joint, torso_1_joint, torso_2_joint]
+      meta:
+        name: Show Battery
+        usage: entertainment
+        description: Show battery pack
+    double_bow:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint, head_1_joint, head_2_joint, torso_1_joint, torso_2_joint]
+      meta:
+        name: Double bow
+        usage: entertainment
+        description: Bow once to each side
+    right_arm_forward:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint, head_1_joint, head_2_joint, torso_1_joint, torso_2_joint]
+      meta:
+        name: Right Arm forward
+        usage: entertainment
+        description: Move right arm forward
+    nod:
+      joints: [head_1_joint, head_2_joint]
+      meta:
+        name: Nod
+        usage: entertainment
+        description: Nod with head
+    point_head_chest:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint, head_1_joint, head_2_joint, torso_1_joint, torso_2_joint]
+      meta:
+        name: Point to head and chest
+        usage: entertainment
+        description: Point to head, then to chest
+    push_walls:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint, head_1_joint, head_2_joint, torso_1_joint, torso_2_joint]
+      meta:
+        name: Push Walls
+        usage: entertainment
+        description: Push lateral walls
+    point_to_chest:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint, head_1_joint, head_2_joint, torso_1_joint, torso_2_joint]
+      meta:
+        name: Point to Chest
+        usage: entertainment
+        description: Point towards the chest with left arm
+    italian:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint, head_1_joint, head_2_joint, torso_1_joint, torso_2_joint]
+      meta:
+        name: Italian move
+        usage: entertainment
+        description: Italian move
+    squat:
+      joints: [leg_left_5_joint, leg_left_4_joint, leg_left_3_joint, leg_right_5_joint, leg_right_4_joint, leg_right_3_joint]
+        positions: [-0.85, 2.0, -1.35, -0.85, 2.0, -1.35,
+                    -0.33, 0.6, -0.26, -0.33, 0.6, -0.26]
+        times_from_start: [5.0, 10.0]
+      meta:
+        name: Squat
+        usage: entertainment
+        description: Squat
+    arms_down:
+      joints: [torso_1_joint, torso_2_joint, head_1_joint, head_2_joint, arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint,
+        arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint]
+        positions: [0.0, 0.05, 0.0, 0.0, 0.4, 1.57, -0.7, -1.45, 0.0, 0.0, 0.0, -0.4, -1.57, 0.7, -1.45, 0.0, 0.0, 0.0, 0.0, 0.0,
+                    0.0, 0.05, 0.0, 0.0, 0.0, 1.57, -1.57, -1.57, 0.0, 0.0, 0.0, 0.0, -1.57, 1.57, -1.57, 0.0, 0.0, 0.0, 0.0, 0.0]
+        times_from_start: [2.0, 3.]
+      meta:
+        name: Arms down
+        usage: posture
+        description: Both arms on the side and wrist down aligned with -z axis
+    picture_pose_high:
+      joints: [torso_1_joint, torso_2_joint, arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint,
+        arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint]
+        positions: [0.0, 0.05, 0.4, 1.4, -0.7, -1.45, 0.0, 0.0, 0.0, -0.4, -1.4, 0.7, -1.45,  0, 0.0, 0.0, 0.0, 0.0,
+                    0.0, 0.05,  0.5, 2.0, 0.35, -1.0,  0.0, 0.0, 0.0,  -0.5, -2.0, -0.35, -1.,  0, 0.0, 0.0, 0.0, 0.0,
+                    0.0, 0.05,0.5, 2.0, 0.35, -1.0,0.65, -1.0, -0.2,-0.5, -2.0, -0.35, -1., -0.65, 1.0, -0.2,  0.0, 0.0,
+                    0.0, 0.05, 0.5, 2.0, 0.35, -1.0,  0.65, -1.0, -0.2, -0.5, -2.0, -0.35, -1., -0.65, 1.0, -0.2,  0.9, 0.9]
+        times_from_start: [3.0, 8.0, 10.0, 12.0]
+      meta:
+        name: Picture pose High
+        usage: Entertainment
+        description: Arms open on the side to lay on someone's shoulders (for tall people)
+    picture_pose_low:
+      joints: [torso_1_joint, torso_2_joint,
+        arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint,
+        arm_left_5_joint, arm_left_6_joint, arm_left_7_joint,
+        arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint,
+        arm_right_5_joint, arm_right_6_joint, arm_right_7_joint,
+        gripper_left_joint, gripper_right_joint]
+        positions: [0.0, 0.05,  0.4, 1., -0.7, -1.45, 0.0, 0.0, 0.0, -0.4, -1., 0.7, -1.45, 0, 0.0, 0.0, 0.0, 0.0,
+                    0.0, 0.05, 0.5, 1.45, 0.4, -1.0, 0.0, 0.0, 0.0, -0.5, -1.45, -0.4, -1., 0, 0.0, 0.0, 0.0, 0.0,
+                    0.0, 0.05, 0.5, 1.45, 0.4, -1.0, 0.3, -1.0, -0.5, -0.5, -1.45, -0.4, -1., -0.3, 1.0, -0.5,  0.0, 0.0,
+                    0.0, 0.05, 0.5, 1.45, 0.4, -1.0, 0.3, -1.0, -0.5, -0.5, -1.45, -0.4, -1., -0.3, 1.0, -0.5,  0.9, 0.9]
+        times_from_start: [3.0, 8.0, 10.0, 12.0]
+      meta:
+        name: Picture pose low
+        usage: Entertainment
+        description: Arms open on the side to lay on someone's shoulders (for short people)
+    picture_pose_both:
+      joints: [torso_1_joint, torso_2_joint, arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint,
+        arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint]
+        positions: [0.0, 0.05, 0.4, 1., -0.7, -1.45, 0.0, 0.0, 0.0, -0.4, -1., 0.7, -1.45, 0, 0.0, 0.0, 0.0, 0.0,
+                    0.0, 0.05, 0.5, 1.45, 0.4, -1.0, 0.0, 0.0, 0.0, -0.5, -2.0, -0.35, -1., 0, 0.0, 0.0, 0.0, 0.0,
+                    0.0, 0.05, 0.5, 1.45, 0.4, -1.0, 0.3, -1.0, -0.5, -0.5, -2.0, -0.35, -1., -0.65, 1.0, -0.2,  0.0, 0.0,
+                    0.0, 0.05, 0.5, 1.45, 0.4, -1.0, 0.3, -1.0, -0.5, -0.5, -2.0, -0.35, -1., -0.65, 1.0, -0.2,  0.9, 0.9]
+        times_from_start: [3.0, 8.0, 10.0, 12.0]
+      meta:
+        name: Picture pose both
+        usage: Entertainment
+        description: Arms open on the side to lay on someone's shoulders (for one short and one tall person)
+    offer_left_gripper:
+      joints: [arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint]
+      meta:
+        name: Offer left gripper
+        usage: grasping
+        description: extend left arm 
+    offer_right_gripper:
+      joints: [arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint]
+      meta:
+        name: Offer right gripper
+        usage: grasping
+        description: extend right arm 
+    present_arms:
+      joints: [torso_1_joint, torso_2_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint]      
+      meta:
+        name: Present arms
+        usage: grasping
+        description: Extend the arms to the front to be ready to grasp a large box
+    close_arms:
+      joints: [torso_1_joint, torso_2_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint, arm_left_7_joint]      
+      meta:
+        name: Close arms
+        usage: grasping
+        description: close the arms around a large bow at the torso level
+    carry_weight:
+      joints: [torso_1_joint, torso_2_joint, head_1_joint, head_2_joint, arm_left_1_joint, arm_left_2_joint, arm_left_3_joint, arm_left_4_joint, arm_left_5_joint, arm_left_6_joint,
+        arm_left_7_joint, arm_right_1_joint, arm_right_2_joint, arm_right_3_joint, arm_right_4_joint, arm_right_5_joint, arm_right_6_joint, arm_right_7_joint, gripper_left_joint, gripper_right_joint]
+        positions: [0.0, 0.0, 0.0, 0.0, -0.2, 0.25, -0.1, -0.6109, 0.0, 0.0, 0.0, 0.2, -0.25, 0.1, -0.6109, 0.0, 0.0, 0.0, 0.0, 0.0,
+                    0.0, 0.05, 0.0, 0.0, 0.0, 1.1, -1.57, -1.1, 1.57, 0.0, 0.0, 0.0, -1.1, 1.57, -1.1, -1.57, 0.0, 0.0, 0.0, 0.0,
+                    0.0, 0.05, 0.0, 0.0, 0.0, 0.7, -1.57, -0.7, 1.57, 0.0, 0.0, 0.0, -0.7, 1.57, -0.7, -1.57, 0.0, 0.0, 0.0, 0.0]
+        times_from_start: [0.0, 3.0, 6.0]
+      meta:
+        name: Carry Weight
+        usage: grasping
+        description: Both arms down on the side, with grippers vertical
+

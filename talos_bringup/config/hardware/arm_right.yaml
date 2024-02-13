@@ -1,0 +1,10 @@
+force_torque:
+  ros__parameters:
+    right_wrist_ft:
+      frame: wrist_right_ft_link
+      transformation:
+        force: [x, y, -z]
+        torque: [x, y, -z]
+      raw_data:
+        force_port: force_wrist_right
+        torque_port: torque_wrist_right
