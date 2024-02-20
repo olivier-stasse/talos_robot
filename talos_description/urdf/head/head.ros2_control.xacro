@@ -16,7 +16,17 @@
  -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:macro name="ros2_control_head" params="name offset_value_1 offset_value_2" >
-    <joint name="${name}_joint">
+    <joint name="${name}_1_joint">
+      <command_interface name="position" />
+      <command_interface name="velocity" />
+      <command_interface name="effort" />
+
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+
+    <joint name="${name}_2_joint">
       <command_interface name="position" />
       <command_interface name="velocity" />
       <command_interface name="effort" />
