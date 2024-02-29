@@ -25,7 +25,79 @@
       <state_interface name="velocity" />
       <state_interface name="effort" />
     </joint>
+    
+    <joint name="${name}_inner_double_joint">
+      <param name="mimic">${name}_joint</param>
+      <param name="multiplier">1</param>
+      <command_interface name="position" />
+      <command_interface name="velocity" />
+      <command_interface name="effort" />
 
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+    
+    <joint name="${name}_fingertip_1_joint">
+      <param name="mimic">${name}_joint</param>
+      <param name="multiplier">1</param>
+
+      <command_interface name="position" />
+      <command_interface name="velocity" />
+      <command_interface name="effort" />
+
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+
+    <joint name="${name}_fingertip_2_joint">
+      <param name="mimic">${name}_joint</param>
+      <param name="multiplier">1</param>    
+      <command_interface name="position" />
+      <command_interface name="velocity" />
+      <command_interface name="effort" />
+
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+
+    <joint name="${name}_motor_single_joint">
+      <param name="mimic">${name}_joint</param>
+      <param name="multiplier">-1</param>    
+      <command_interface name="position" />
+      <command_interface name="velocity" />
+      <command_interface name="effort" />
+
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+
+    <joint name="${name}_inner_single_joint">
+      <param name="mimic">${name}_joint</param>
+      <param name="multiplier">-1</param>    
+      <command_interface name="position" />
+      <command_interface name="velocity" />
+      <command_interface name="effort" />
+
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint> 
+
+    <joint name="${name}_fingertip_3_joint">
+      <param name="mimic">${name}_joint</param>
+      <param name="multiplier">-1</param>    
+      <command_interface name="position" />
+      <command_interface name="velocity" />
+      <command_interface name="effort" />
+
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>   
    <!-- transmissions -->
   <xacro:include filename="$(find talos_description)/urdf/gripper/gripper.transmission.xacro" />
   <xacro:gripper_transmission name="${name}" reduction="1.0" />

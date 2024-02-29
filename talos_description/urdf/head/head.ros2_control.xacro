@@ -15,8 +15,8 @@
   limitations under the License.
  -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="ros2_control_head" params="name offset_value_1 offset_value_2" >
-    <joint name="${name}_1_joint">
+  <xacro:macro name="ros2_control_head" params="name number_1 number_2 offset_value_1 offset_value_2" >
+    <joint name="${name}_${number_1}_joint">
       <command_interface name="position" />
       <command_interface name="velocity" />
       <command_interface name="effort" />
@@ -25,8 +25,8 @@
       <state_interface name="velocity" />
       <state_interface name="effort" />
     </joint>
-
-    <joint name="${name}_2_joint">
+    
+    <joint name="${name}_${number_2}_joint">
       <command_interface name="position" />
       <command_interface name="velocity" />
       <command_interface name="effort" />
@@ -39,7 +39,7 @@
     <!-- Transmission -->
     <xacro:include filename="$(find talos_description)/urdf/head/head.transmission.xacro" />
  
-    <xacro:talos_head_differential_transmission name="${name}" number1="1" number2="2"
+    <xacro:talos_head_differential_transmission name="${name}" number1="${number_1}" number2="${number_2}"
                                                 act_reduction1="1.0" act_reduction2="1.0"
                                                 jnt_reduction1="1.0" jnt_reduction2="2.0"
                                                 offset_value_1="${offset_value_1}" offset_value_2="${offset_value_2}"/>

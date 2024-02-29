@@ -23,13 +23,25 @@
   <xacro:arg name="multiple" default="false"/>
   <xacro:property name="is_multiple" value="$(arg multiple)" />
 
+  <!-- ROS 2 Control-->
+  <xacro:include filename="$(find talos_description)/ros2_control/ros2_control.urdf.xacro" />
+  <xacro:talos_ros2_control use_sim="$(arg use_sim)"/>
+
   <!--************************-->
   <!--        BASE_LINK       -->
   <!--************************-->
+  <link name="world"/>
+
+  <joint name="world_fixed" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="world"/>
+      <child link="base_link"/>
+  </joint>
+
   <link name="base_link">
     <inertial>
       <origin xyz="-0.08222 0.00838 -0.07261" rpy="0.00000 0.00000 0.00000"/>
-      <mass value="13.53810"/>
+      <mass value="13.503810"/>
       <inertia ixx="0.06989000000" ixy="-0.00011700000" ixz="0.00023000000"
                iyy="0.03998200000" iyz="-0.00132500000"
                izz="0.08234500000"/>
@@ -49,6 +61,7 @@
     </collision>
   </link>
 
+
   <xacro:talos_leg prefix="left"  reflect="1" />
   <xacro:talos_leg prefix="right" reflect="-1" />
 
@@ -60,7 +73,5 @@
   <!-- Materials for visualization -->
   <xacro:include filename="$(find talos_description)/urdf/materials.urdf.xacro" />
 
-  <!-- ROS 2 Control-->
-  <xacro:include filename="$(find talos_description)/ros2_control/ros2_control.urdf.xacro" />
-  <xacro:talos_ros2_control use_sim="$(arg use_sim)"/>
+
 </robot>
