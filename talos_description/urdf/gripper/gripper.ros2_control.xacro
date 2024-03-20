@@ -15,7 +15,23 @@
   limitations under the License.
  -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
+
   <xacro:macro name="ros2_control_gripper" params="name" >
+
+    <xacro:macro name="ros2_control_talos_gripper_mimic_joint" params="mimic_joint_name actuated_joint_name multiplier" >
+      <joint name="${mimic_joint_name}">
+        <param name="mimic">${actuated_joint_name}</param>
+        <param name="multiplier">${multiplier}</param>
+        <command_interface name="position" />
+        <command_interface name="velocity" />
+        <command_interface name="effort" />
+
+        <state_interface name="position"/>
+        <state_interface name="velocity" />
+        <state_interface name="effort" />
+      </joint>
+    </xacro:macro>
+
     <joint name="${name}_joint">
       <command_interface name="position" />
       <command_interface name="velocity" />
@@ -26,78 +42,33 @@
       <state_interface name="effort" />
     </joint>
     
-    <joint name="${name}_inner_double_joint">
-      <param name="mimic">${name}_joint</param>
-      <param name="multiplier">1</param>
-      <command_interface name="position" />
-      <command_interface name="velocity" />
-      <command_interface name="effort" />
+    <xacro:ros2_control_talos_gripper_mimic_joint mimic_joint_name="${name}_inner_double_joint" 
+                                                    actuated_joint_name="${name}_joint" 
+                                                    multiplier="1"/>
 
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
-    
-    <joint name="${name}_fingertip_1_joint">
-      <param name="mimic">${name}_joint</param>
-      <param name="multiplier">1</param>
+    <xacro:ros2_control_talos_gripper_mimic_joint mimic_joint_name="${name}_fingertip_1_joint" 
+                                                    actuated_joint_name="${name}_joint" 
+                                                    multiplier="1"/>
 
-      <command_interface name="position" />
-      <command_interface name="velocity" />
-      <command_interface name="effort" />
+    <xacro:ros2_control_talos_gripper_mimic_joint mimic_joint_name="${name}_fingertip_2_joint" 
+                                                    actuated_joint_name="${name}_joint" 
+                                                    multiplier="1"/>
 
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
 
-    <joint name="${name}_fingertip_2_joint">
-      <param name="mimic">${name}_joint</param>
-      <param name="multiplier">1</param>    
-      <command_interface name="position" />
-      <command_interface name="velocity" />
-      <command_interface name="effort" />
+    <xacro:ros2_control_talos_gripper_mimic_joint mimic_joint_name="${name}_motor_single_joint" 
+                                                    actuated_joint_name="${name}_joint" 
+                                                    multiplier="-1"/>
 
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
 
-    <joint name="${name}_motor_single_joint">
-      <param name="mimic">${name}_joint</param>
-      <param name="multiplier">-1</param>    
-      <command_interface name="position" />
-      <command_interface name="velocity" />
-      <command_interface name="effort" />
+    <xacro:ros2_control_talos_gripper_mimic_joint mimic_joint_name="${name}_inner_single_joint" 
+                                                    actuated_joint_name="${name}_joint" 
+                                                    multiplier="-1"/>
 
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>
 
-    <joint name="${name}_inner_single_joint">
-      <param name="mimic">${name}_joint</param>
-      <param name="multiplier">-1</param>    
-      <command_interface name="position" />
-      <command_interface name="velocity" />
-      <command_interface name="effort" />
-
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint> 
-
-    <joint name="${name}_fingertip_3_joint">
-      <param name="mimic">${name}_joint</param>
-      <param name="multiplier">-1</param>    
-      <command_interface name="position" />
-      <command_interface name="velocity" />
-      <command_interface name="effort" />
-
-      <state_interface name="position" />
-      <state_interface name="velocity" />
-      <state_interface name="effort" />
-    </joint>   
+    <xacro:ros2_control_talos_gripper_mimic_joint mimic_joint_name="${name}_fingertip_3_joint" 
+                                                    actuated_joint_name="${name}_joint" 
+                                                    multiplier="-1"/>
+  
    <!-- transmissions -->
   <xacro:include filename="$(find talos_description)/urdf/gripper/gripper.transmission.xacro" />
   <xacro:gripper_transmission name="${name}" reduction="1.0" />

@@ -2,11 +2,27 @@
 
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <!--File includes-->
   <xacro:include filename="$(find talos_description)/urdf/deg_to_rad.xacro" />
-  <xacro:include filename="$(find talos_description)/urdf/gripper/gripper.gazebo.xacro" />
 
   <xacro:macro name="talos_gripper" params="name parent reflect">
+
+            <xacro:macro name="dummy_mimic_joint" params="name parent">
+              <link name="${name}_dummy_mimic_link"/>
+
+              <joint name="${name}_joint_mimic" type="fixed">
+                <parent link="${parent}" />
+                <child link="${name}_dummy_mimic_link" />
+              </joint>
+            </xacro:macro>
+
+            <xacro:macro name="finger_mimic_dummy" params="name">
+              <xacro:dummy_mimic_joint name="${name}_fingertip_1" parent="${name}_base_link"/>
+              <xacro:dummy_mimic_joint name="${name}_fingertip_2" parent="${name}_base_link"/>
+              <xacro:dummy_mimic_joint name="${name}_inner_single" parent="${name}_base_link"/>
+              <xacro:dummy_mimic_joint name="${name}_fingertip_3" parent="${name}_base_link"/>
+              <xacro:dummy_mimic_joint name="${name}_motor_single" parent="${name}_base_link"/> 
+              <xacro:dummy_mimic_joint name="${name}_inner_double" parent="${name}_base_link"/>                         
+            </xacro:macro>
 
             <link name="${name}_base_link">
               <xacro:call macro="${name}_base_link_inertial" />
@@ -249,17 +265,72 @@
             </joint>
 
 
+            <gazebo reference="${name}_joint">
+                <implicitSpringDamper>1</implicitSpringDamper>
+                <provideFeedback>1</provideFeedback>
+              </gazebo>
 
-        <xacro:virtual_joints name="${name}" />
+              <gazebo reference="${name}_inner_double_joint">
+                <implicitSpringDamper>1</implicitSpringDamper>
+                <provideFeedback>1</provideFeedback>
+              </gazebo>
 
-        <!-- virtual mimic joints -->
-<!--         <xacro:gripper_virtual_transmission name="${name}_inner_double" reduction="1.0"/>
-        <xacro:gripper_virtual_transmission name="${name}_fingertip_1" reduction="1.0"/>
-        <xacro:gripper_virtual_transmission name="${name}_fingertip_2" reduction="1.0"/>
-        <xacro:gripper_virtual_transmission name="${name}_inner_single" reduction="1.0"/>
-        <xacro:gripper_virtual_transmission name="${name}_motor_single" reduction="1.0"/>
-        <xacro:gripper_virtual_transmission name="${name}_fingertip_3" reduction="1.0"/> -->
+              <gazebo reference="${name}_fingertip_1_joint">
+                <implicitSpringDamper>1</implicitSpringDamper>
+                <provideFeedback>1</provideFeedback>
+              </gazebo>
+
+              <gazebo reference="${name}_fingertip_2_joint">
+                <implicitSpringDamper>1</implicitSpringDamper>
+                <provideFeedback>1</provideFeedback>
+              </gazebo>
+
+              <gazebo reference="${name}_motor_single_joint">
+                <implicitSpringDamper>1</implicitSpringDamper>
+                <provideFeedback>1</provideFeedback>
+              </gazebo>
+
+              <gazebo reference="${name}_fingertip_3_joint">
+                <implicitSpringDamper>1</implicitSpringDamper>
+                <provideFeedback>1</provideFeedback>
+              </gazebo>
+
+              <gazebo reference="${name}_base_link">
+                <material>Gazebo/FlatBlack</material>
+              </gazebo>
+
+              <gazebo reference="${name}_motor_double_link">
+                <material>Gazebo/Orange</material>
+              </gazebo>
+
+              <gazebo reference="${name}_inner_double_link">
+                <material>Gazebo/Orange</material>
+              </gazebo>
+
+              <gazebo reference="${name}_fingertip_1_link">
+                <material>Gazebo/FlatBlack</material>
+              </gazebo>
+
+              <gazebo reference="${name}_motor_single_link">
+                <material>Gazebo/Orange</material>
+              </gazebo>
+
+
+              <gazebo reference="${name}_inner_single_link">
+                <material>Gazebo/Orange</material>
+              </gazebo>
+
+              <gazebo reference="${name}_fingertip_2_link">
+                <material>Gazebo/FlatBlack</material>
+              </gazebo>
+
+              <gazebo reference="${name}_fingertip_3_link">
+                <material>Gazebo/FlatBlack</material>
+              </gazebo>
+
+              <!-- Temporary fix until mimic joint works properly with MoveIt!-->
+              <xacro:finger_mimic_dummy name="${name}"/>
+              <xacro:dummy_mimic_joint name="${name}_link" parent="${name}_base_link"/>
 
   </xacro:macro>
-
 </robot>

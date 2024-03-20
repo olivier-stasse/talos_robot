@@ -44,7 +44,7 @@
 
       <!-- IMU -->
       <xacro:if value="$(arg use_sim)">
-        <xacro:ros2_control_imu name="base_imu_sensor"/>
+        <xacro:ros2_control_imu name="imu_sensor"/>
       </xacro:if>
 
       <!-- arm right-->
