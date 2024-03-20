@@ -27,9 +27,6 @@ from launch.substitutions import LaunchConfiguration, PythonExpression
 
 def generate_launch_description():
 
-    # enable_unloading_workaround_arg = DeclareLaunchArgument(
-    #     'enable_unloading_workaround', default_value='False')
-
     pkg_share_folder = get_package_share_directory(
         'talos_controller_configuration')
 
@@ -253,10 +250,7 @@ def generate_launch_description():
 
     ld.add_action(get_robot_name('talos'))
 
-  #  ld.add_action(robot_model_arg)
-    # ld.add_action(enable_unloading_workaround_arg)
-  #  ld.add_action(torso_controller_launch)
-
+    ld.add_action(torso_controller_launch)
     ld.add_action(head_controller_launch)
     ld.add_action(arm_right_controller_launch)
     ld.add_action(arm_left_controller_launch)

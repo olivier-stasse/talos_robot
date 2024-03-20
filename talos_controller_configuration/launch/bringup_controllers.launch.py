@@ -20,23 +20,10 @@ from ament_index_python.packages import get_package_share_directory
 from controller_manager.launch_utils import generate_load_controller_launch_description
 from launch.actions import DeclareLaunchArgument
 from launch_pal.include_utils import include_launch_py_description
+import yaml
 
 
 def generate_launch_description():
-    enable_unloading_workaround_arg = DeclareLaunchArgument(
-        'enable_unloading_workaround', default_value='False')
-
-    # TO REVIEW
-    extra_args = GroupAction([
-        DeclareLaunchArgument(
-            'extra_args',
-            default_value='',
-            description='Extra arguments for controller spawner node'),
-        DeclareLaunchArgument(
-            'extra_args_unloading_workaround',
-            default_value='--shutdown-timeout 1.0',
-            description='Extra arguments for controller spawner node if unloading workaround is enabled')
-    ])
 
     pkg_share_folder = os.path.join(
         get_package_share_directory('talos_controller_configuration'), 'config')
@@ -54,23 +41,23 @@ def generate_launch_description():
         controller_name='ft_sensor_left_controller',
         controller_type='force_torque_sensor_broadcaster/ForceTorqueSensorBroadcaster',
         controller_params_file=os.path.join(
-            get_package_share_directory('talos_controller_configuration'),
-            'config', 'ft_sensor_left_controller.yaml'))
+            pkg_share_folder,
+            'ft_sensor_left_controller.yaml'))
 
     force_torque_sensor_right_launch = generate_load_controller_launch_description(
         controller_name='ft_sensor_right_controller',
         controller_type='force_torque_sensor_broadcaster/ForceTorqueSensorBroadcaster',
         controller_params_file=os.path.join(
-            get_package_share_directory('talos_controller_configuration'),
-            'config', 'ft_sensor_right_controller.yaml'))
+            pkg_share_folder,
+            'ft_sensor_right_controller.yaml'))
 
     # IMU sensors controller
     imu_sensor_controller_launch = generate_load_controller_launch_description(
-        controller_name='imu_sensor_controller',
+        controller_name='imu_sensor_broadcaster',
         controller_type='imu_sensor_broadcaster/IMUSensorBroadcaster',
         controller_params_file=os.path.join(
-            get_package_share_directory('talos_controller_configuration'),
-            'config', 'imu_sensor_controller.yaml'))
+            pkg_share_folder,
+            'imu_sensor_broadcaster.yaml'))
 
     default_controllers = include_launch_py_description(
         'talos_controller_configuration', [
@@ -78,12 +65,11 @@ def generate_launch_description():
     )
     ld = LaunchDescription()
 
-   # ld.add_action(extra_args)
     ld.add_action(joint_state_broadcaster_launch)
     ld.add_action(default_controllers)
-    ld.add_action(enable_unloading_workaround_arg)
     ld.add_action(force_torque_sensor_right_launch)
     ld.add_action(force_torque_sensor_left_launch)
-    ld.add_action(imu_sensor_controller_launch)
+    # TODO
+    # ld.add_action(imu_sensor_controller_launch)
 
     return ld

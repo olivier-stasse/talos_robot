@@ -21,21 +21,12 @@ from launch_pal.include_utils import include_scoped_launch_py_description
 
 def generate_launch_description():
     robot_model = DeclareLaunchArgument(
-        'robot_model', default_value='full_v2',
+        'robot_model', default_value='upper_body',
         description='Robot model',
     )
 
     # TODO
-    # walking_controllers_launch = include_launch_py_description(
-    #     'talos_controller_configuration', [
-    #         'launch', 'walking_controllers.launch.py'],
-    # )
-
-    # TO COMPLETE
-    # walk_pose_launch = include_launch_py_description(
-    #     'talos_controller_configuration', [
-    #         'launch', 'walk_pose.launch.py'],
-    # )
+    # walking controllers
 
     position_controllers_launch = include_scoped_launch_py_description(
         'talos_controller_configuration', [
@@ -44,11 +35,7 @@ def generate_launch_description():
     )
 
     ld = LaunchDescription()
-
     ld.add_action(robot_model)
-
-  #  ld.add_action(walking_controllers_launch)
     ld.add_action(position_controllers_launch)
- #   ld.add_action(walk_pose_launch)
 
     return ld
