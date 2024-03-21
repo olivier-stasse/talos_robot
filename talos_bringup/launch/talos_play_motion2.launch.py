@@ -25,10 +25,9 @@ from launch_pal.robot_utils import get_robot_name
 
 def launch_setup(context, *args, **kwargs):
 
-    approach_planner_file = 'approach_planner_full.yaml'
-    approach_planner_file_path = os.path.join(
+    motion_planner_file_path = os.path.join(
         get_package_share_directory("talos_bringup"),
-        "config", approach_planner_file
+        "config", "motion_planner.yaml"
     )
     motions_file = 'talos_motions.yaml'
     motions_file_path = os.path.join(
@@ -41,7 +40,7 @@ def launch_setup(context, *args, **kwargs):
         ["launch", "play_motion2.launch.py"],
         launch_arguments={
             "motions_file": motions_file_path,
-            "approach_planner_config": approach_planner_file_path
+            "motion_planner_config": motion_planner_file_path
         }.items(),
     )
 

@@ -57,7 +57,7 @@ def generate_launch_description():
    # ld.add_action(declare_hardware_comp)
     ld.add_action(bringup_controllers)
   #  ld.add_action(bringup_controllers_hardware)
-    # ld.add_action(play_motion2)
+    ld.add_action(play_motion2)
     # ld.add_action(twist_mux)
 
     return ld
