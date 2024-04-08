@@ -59,17 +59,12 @@ def generate_launch_description():
             pkg_share_folder,
             'imu_sensor_broadcaster.yaml'))
 
-    default_controllers = include_launch_py_description(
-        'talos_controller_configuration', [
-            'launch', 'default_controllers.launch.py'],
-    )
     ld = LaunchDescription()
 
     ld.add_action(joint_state_broadcaster_launch)
-    ld.add_action(default_controllers)
     ld.add_action(force_torque_sensor_right_launch)
     ld.add_action(force_torque_sensor_left_launch)
-    # TODO
+    # TODO imu_sensor
     # ld.add_action(imu_sensor_controller_launch)
 
     return ld
