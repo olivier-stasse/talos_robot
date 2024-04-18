@@ -2,6 +2,9 @@
 Changelog for package talos_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 1.1.30 (2023-11-08)
 -------------------
 * Merge branch 'play_motion_carry' into 'erbium-devel'

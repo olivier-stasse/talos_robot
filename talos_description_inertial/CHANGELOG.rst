@@ -2,6 +2,15 @@
 Changelog for package talos_description_inertial
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix-sign-inertias' into 'erbium-devel'
+  fix inertia signs leg_left_1_link - arm_right_4_link_inertial
+  See merge request robots/talos_robot!128
+* update inertia signs
+* fix inertia signs leg_left_1_link and arm_right_4_link_inertial
+* Contributors: Adria Roig, ileniaperrella
+
 1.1.30 (2023-11-08)
 -------------------
 
