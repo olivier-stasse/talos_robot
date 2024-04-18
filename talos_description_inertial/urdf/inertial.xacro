@@ -81,8 +81,8 @@
   <xacro:macro name="arm_right_4_link_inertial">
     <inertial>
       <mass value="0.815675"/>
-      <inertia ixx="0.00299913" ixy="-0.00009333" ixz="0.0003389" iyy="0.00303994" iyz="-0.0004233" izz="0.00126248" />
-      <origin rpy="0 0 0" xyz="-0.00810404 -0.01944328 -0.03329237"/>
+      <inertia ixx="0.00299913" ixy="0.00009333" ixz="0.0003389" iyy="0.00303994" iyz="0.0004233" izz="0.00126248" />
+      <origin rpy="0 0 0" xyz="-0.00810404 0.01944328 -0.03329237"/>
     </inertial>
   </xacro:macro>
   <xacro:macro name="arm_right_5_link_inertial">
@@ -256,8 +256,8 @@
   <xacro:macro name="leg_left_1_link_inertial">
     <inertial>
       <mass value="2.235009"/>
-      <inertia ixx="0.01049849" ixy="0.00004097" ixz="0.00009771" iyy="0.00534086" iyz="-0.0011949" izz="0.00708595" />
-      <origin rpy="0 0 0" xyz="0.08472839 -0.10997434 0.01705898"/>
+      <inertia ixx="0.01049849" ixy="-0.00004097" ixz="0.00009771" iyy="0.00534086" iyz="0.0011949" izz="0.00708595" />
+      <origin rpy="0 0 0" xyz="0.08472839 0.10997434 0.01705898"/>
     </inertial>
   </xacro:macro>
   <xacro:macro name="leg_left_2_link_inertial">
