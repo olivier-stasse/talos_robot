@@ -1,4 +1,0 @@
-ft_sensor_right_controller:
-  ros__parameters:
-    frame_id: wrist_right_ft_link
-    sensor_name: wrist_right_ft_sensor

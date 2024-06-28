@@ -16,41 +16,31 @@
  -->
 
 <robot name="talos" xmlns:xacro="http://ros.org/wiki/xacro">
-  <gazebo>
-    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-      <!-- in the future move this param file somewhere else -->
-      <parameters>$(find talos_controller_configuration)/config/gazebo_controller_manager_cfg.yaml</parameters>
-      <xacro:if value="${is_multiple}">
-        <!-- Do something about multirobot -->
-      </xacro:if>
-      <xacro:unless value="${is_multiple}">
-        <!-- Do something about multirobot -->
-      </xacro:unless>
-    </plugin>
-  </gazebo>
-  <gazebo reference="imu_link">
-    <sensor name="imu_sensor" type="imu">
-      <always_on>1</always_on>
-      <update_rate>1000.0</update_rate>
-      <imu>
-        <noise>
-          <type>gaussian</type>
-          <rate>
-            <mean>0.0</mean>
-            <stddev>0.0</stddev>
-            <bias_mean>0.000000</bias_mean>
-            <bias_stddev>0.0000008</bias_stddev>
-          </rate>
-          <accel>
-            <mean>0.0</mean>
-            <stddev>0.0</stddev>
-            <bias_mean>0.0</bias_mean>
-            <bias_stddev>0.000</bias_stddev>
-          </accel>  
-        </noise>
-      </imu>
-    </sensor>
-  </gazebo>
+
+  <xacro:include filename="$(find talos_description)/urdf/sensors/imu.gazebo.xacro" />
+  <xacro:include filename="$(find talos_description)/urdf/sensors/ftsensor.gazebo.xacro" />
+
+  <xacro:macro name="talos_gazebo">
+    <gazebo>
+      <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+        <!-- in the future move this param file somewhere else -->
+        <parameters>$(find talos_controller_configuration)/config/gazebo_controller_manager_cfg.yaml</parameters>
+        <xacro:if value="${is_multiple}">
+          <!-- Do something about multirobot -->
+        </xacro:if>
+        <xacro:unless value="${is_multiple}">
+          <!-- Do something about multirobot -->
+        </xacro:unless>
+      </plugin>
+    </gazebo>
+
+    <xacro:imu_sensor_gazebo update_rate="1000.0"/>
+    <xacro:force_torque_sensor_gazebo name="wrist_left_ft" update_rate="1000.0"/>
+    <xacro:force_torque_sensor_gazebo name="wrist_right_ft" update_rate="1000.0"/>
+    <!-- <xacro:force_torque_sensor_gazebo name="ankle_left_ft" update_rate="1000.0"/>
+    <xacro:force_torque_sensor_gazebo name="ankle_right_ft" update_rate="1000.0"/> -->
+
+  </xacro:macro>
 
 </robot>
 

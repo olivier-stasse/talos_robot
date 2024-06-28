@@ -37,22 +37,38 @@ def generate_launch_description():
     )
 
     # Force-torque sensors controller for the wrists
-    force_torque_sensor_left_launch = generate_load_controller_launch_description(
-        controller_name='ft_sensor_left_controller',
+    wrist_left_ft_broadcaster_launch = generate_load_controller_launch_description(
+        controller_name='wrist_left_ft_broadcaster',
         controller_type='force_torque_sensor_broadcaster/ForceTorqueSensorBroadcaster',
         controller_params_file=os.path.join(
             pkg_share_folder,
-            'ft_sensor_left_controller.yaml'))
+            'wrist_left_ft_broadcaster.yaml'))
 
-    force_torque_sensor_right_launch = generate_load_controller_launch_description(
-        controller_name='ft_sensor_right_controller',
+    wrist_right_ft_broadcaster_launch = generate_load_controller_launch_description(
+        controller_name='wrist_right_ft_broadcaster',
         controller_type='force_torque_sensor_broadcaster/ForceTorqueSensorBroadcaster',
         controller_params_file=os.path.join(
             pkg_share_folder,
-            'ft_sensor_right_controller.yaml'))
+            'wrist_right_ft_broadcaster.yaml'))
+
+
+    # Force-torque sensors controller for the ankles
+    ankle_left_ft_broadcaster_launch = generate_load_controller_launch_description(
+        controller_name='ankle_left_ft_broadcaster',
+        controller_type='force_torque_sensor_broadcaster/ForceTorqueSensorBroadcaster',
+        controller_params_file=os.path.join(
+            pkg_share_folder,
+            'ankle_left_ft_broadcaster.yaml'))
+
+    ankle_right_ft_broadcaster_launch = generate_load_controller_launch_description(
+        controller_name='ankle_right_ft_broadcaster',
+        controller_type='force_torque_sensor_broadcaster/ForceTorqueSensorBroadcaster',
+        controller_params_file=os.path.join(
+            pkg_share_folder,
+            'ankle_right_ft_broadcaster.yaml'))
 
     # IMU sensors controller
-    imu_sensor_controller_launch = generate_load_controller_launch_description(
+    imu_sensor_broadcaster_launch = generate_load_controller_launch_description(
         controller_name='imu_sensor_broadcaster',
         controller_type='imu_sensor_broadcaster/IMUSensorBroadcaster',
         controller_params_file=os.path.join(
@@ -62,9 +78,11 @@ def generate_launch_description():
     ld = LaunchDescription()
 
     ld.add_action(joint_state_broadcaster_launch)
-    ld.add_action(force_torque_sensor_right_launch)
-    ld.add_action(force_torque_sensor_left_launch)
+    ld.add_action(wrist_left_ft_broadcaster_launch)
+    ld.add_action(wrist_right_ft_broadcaster_launch)
+    ld.add_action(ankle_left_ft_broadcaster_launch)
+    ld.add_action(ankle_right_ft_broadcaster_launch)
     # TODO imu_sensor
-    # ld.add_action(imu_sensor_controller_launch)
+    # ld.add_action(imu_sensor_broadcaster_launch)
 
     return ld
