@@ -21,7 +21,7 @@
 
 
     <xacro:if value="${flexibility}">
-  <!-- Joint flex_hip_y (mesh link) : child link flex_hip_x -> parent link base_link -->
+  <!-- Joint flex_hip_y (mesh link) ; child link flex_hip_x -> parent link base_link -->
     <link name="leg_${prefix}_flex_1_link">
     <inertial>
       <origin rpy="0. 0. 0." xyz="0. 0. 0."/>
@@ -45,7 +45,7 @@
     <dynamics damping="0.0" friction="0.0"/>
   </joint>
 
-  <!-- Joint flex_hip_x (mesh link) : child link hip_z -> parent link flex_hip_y -->
+  <!-- Joint flex_hip_x (mesh link) ; child link hip_z -> parent link flex_hip_y -->
   <link name="leg_${prefix}_flex_2_link">
     <inertial>
       <origin rpy="0. 0. 0." xyz="0. 0. 0."/>
@@ -89,7 +89,7 @@
       </collision>
     </link>
 
-    <!-- Joint hip_z (mesh link) : child link hip_x -> parent link base_link -->
+    <!-- Joint hip_z (mesh link) ; child link hip_x -> parent link base_link -->
     <xacro:unless value="${flexibility}">
     <joint name="leg_${prefix}_1_joint" type="revolute">
       <parent link="base_link"/>
@@ -113,7 +113,7 @@
     </xacro:if>
 
 
-    <!-- Joint hip_x (mesh link) : child link hip_y -> parent link hip_z -->
+    <!-- Joint hip_x (mesh link) ; child link hip_y -> parent link hip_z -->
 
     <link name="leg_${prefix}_2_link">
       <xacro:call macro="leg_${prefix}_2_link_inertial" />
@@ -144,7 +144,7 @@
       <dynamics friction="${leg_friction}" damping="${leg_damping}"/>
     </joint>
 
-    <!-- Joint hip_y (mesh link) : child link knee -> parent link hip_x -->
+    <!-- Joint hip_y (mesh link) ; child link knee -> parent link hip_x -->
 
     <link name="leg_${prefix}_3_link">
       <xacro:call macro="leg_${prefix}_3_link_inertial" />
@@ -175,7 +175,7 @@
       <dynamics friction="${leg_friction}" damping="${leg_damping}"/>
     </joint>
 
-    <!-- Joint knee (mesh link) : child link ankle_y -> parent link hip_y -->
+    <!-- Joint knee (mesh link) ; child link ankle_y -> parent link hip_y -->
 
     <link name="leg_${prefix}_4_link">
       <xacro:call macro="leg_${prefix}_4_link_inertial" />
@@ -207,7 +207,7 @@
       <dynamics friction="${leg_friction}" damping="${leg_damping}"/>
     </joint>
 
-    <!-- Joint ankle_y (mesh link) : child link ankle_x -> parent link knee -->
+    <!-- Joint ankle_y (mesh link) ; child link ankle_x -> parent link knee -->
 
     <link name="leg_${prefix}_5_link">
       <!-- XXX AS: this link has moving lever and inertial parameters should slightly vary depending on configuration. XXX -->
@@ -239,7 +239,7 @@
       <dynamics friction="${leg_friction}" damping="${leg_damping}"/>
     </joint>
 
-    <!-- Joint ankle_x (mesh link) : child link None -> parent link ankle_y -->
+    <!-- Joint ankle_x (mesh link) ; child link None -> parent link ankle_y -->
 
     <link name="leg_${prefix}_6_link">
       <xacro:call macro="leg_${prefix}_6_link_inertial" />
