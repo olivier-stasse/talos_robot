@@ -1,0 +1,4 @@
+ankle_right_ft_broadcaster:
+  ros__parameters:
+    frame_id: ankle_right_ft_link
+    sensor_name: ankle_right_ft_sensor

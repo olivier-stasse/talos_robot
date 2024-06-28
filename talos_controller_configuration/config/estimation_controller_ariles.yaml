@@ -1,0 +1,114 @@
+talos_estimation:
+  contact_estimator:
+    safe_contact_monitor: true
+    foot_names:
+      - 'left_sole_link'
+      - 'right_sole_link'
+    # Debug = 0, Info = 1, Warning = 2, Error = 3, Fatal = 4
+    log_level: 1
+    base_type: 'FLOATING'
+    plugin_name: 'RBDL'
+    # Specific to the FT sensor contact estimator
+    minimum_contact_force: 50.0
+
+  floating_base_estimator:
+    # Common parameters:
+    use_filtered_linear_acceleration: true
+    use_filtered_angular_velocity: true
+    return_base_to_world_linear_velocity_filtered: false
+    return_base_to_world_angular_velocity_filtered: false
+    # Used for bias evolution of the leg variables, in stance the value
+    # stays constant in swing the bias evolution has high variance
+    leg_stance_position_bias_covariance: 1e-2
+    leg_stance_orientation_bias_covariance: 1e-2
+    leg_swing_position_bias_covariance: 10.
+    leg_swing_orientation_bias_covariance: 10.
+    leg_position_pseudo_measurement_covariance: 1e-5
+    leg_orientation_pseudo_measurement_covariance: 1e-5
+    imu_link_frame_name: 'imu_link'
+    link_parameters:
+      - id: 'right_sole_link'
+        estimate_position: true
+        estimate_orientation: false
+        sole_link_name: 'right_sole_link'
+        ankle_link_name: 'leg_right_5_link'
+        fixed_point_type: 'SOLE'
+      - id: 'left_sole_link'
+        estimate_position: true
+        estimate_orientation: false
+        sole_link_name: 'left_sole_link'
+        ankle_link_name: 'leg_left_5_link'
+        fixed_point_type: 'SOLE'
+    imu_parameters:
+      position_evolution_noise: 1e-3
+      velocity_evolution_noise:  1e-5
+      rotation_evolution_noise:  1e-5
+      linear_acceleration_bias_noise:  1e-6
+      angular_velocity_bias_noise:  1e-6
+      enable_angular_velocity_bias_estimation: false
+      enable_linear_acceleration_bias_estimation: false
+      # FIXME too many controllers need this. We need to mutualize.
+      # From robot_description_semantics?
+      gravity: [0., 0., -9.81]
+    linear_acceleration_filter_type: 'FirstOrderFilter3d'
+    linear_acceleration_filter_params:
+      filter_parameters:
+      - order: 5
+        type: 'LowPass'
+        composition_type: 'Sequence'
+        cutoff1: 100.0
+        cutoff2: 0.0
+    angular_velocity_filter_type: 'FirstOrderFilter3d'
+    angular_velocity_filter_params:
+      filter_parameters:
+        - order: 5
+          type: 'LowPass'
+          composition_type: 'Sequence'
+          cutoff1: 100.0
+          cutoff2: 0.0
+    base_to_world_linear_velocity_filter_type: 'FirstOrderFilter3d'
+    base_to_world_linear_velocity_filter_params:
+      filter_parameters:
+        - order: 5
+          type: 'LowPass'
+          composition_type: 'Sequence'
+          cutoff1: 100.0
+          cutoff2: 0.0
+    base_to_world_angular_velocity_filter_type: 'FirstOrderFilter3d'
+    base_to_world_angular_velocity_filter_params:
+      filter_parameters:
+        - order: 5
+          type: 'LowPass'
+          composition_type: 'Sequence'
+          cutoff1: 100.0
+          cutoff2: 0.0
+    # Kinematic state estimator specifics:
+    base_type: 'FLOATING'
+    plugin_name: 'RBDL'
+    fix_yaw: true
+    freeze_foot_height: true
+    # If freeze_foot_height is true when the error between the estimated contact height
+    freeze_foot_height_threshold: 0.02
+    # FIXME this previous comment on this parameter.
+    gravity: [0.0, 0.0, -9.81]
+    use_imu_filtered_linear_acc: true
+    use_imu_filtered_angular_vel: true
+    # Weights:
+    regularization: 1e-6
+    foot_linear_vel_weight: 10.0
+    angular_vel_weight: 1.0
+    joint_vel_weight: 0.01
+    linear_vel_weight: 10.0
+    return_estimated_angular_vel: false
+    return_estimated_joint_vel: false
+    enable_bias_estimation: true
+    bias_estimation_parameters: 
+      initial_imu_bias: [0.0, 0.0, 0.0]
+      bias_filter_parameters:
+        filter_parameters:
+          - order: 5 # int
+            type: 'LowPass' # std::string
+            composition_type: 'Sequence' # std::string
+            cutoff1: 0.01 # double
+            cutoff2: 0.0 # double
+    robot_model_chains: []
