@@ -295,6 +295,20 @@
       <origin rpy="0 0 0" xyz="-0.02034668 -0.00051514 -0.05987428"/>
     </inertial>
   </xacro:macro>
+  <xacro:macro name="ankle_left_ft_link_inertial">
+    <inertial>
+      <mass value="0.095"/>
+      <inertia ixx="1.108502e-05" ixy="9.9077e-07" ixz="-2.3811e-07" iyy="1.092725e-05" iyz="2.3137e-07" izz="1.898772e-05" />
+      <origin rpy="0 0 0" xyz="-0.001001 0.000995 -0.008108"/>
+    </inertial>
+  </xacro:macro>
+  <xacro:macro name="ankle_left_ft_tool_link_inertial">
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </inertial>
+  </xacro:macro>
   <xacro:macro name="leg_right_1_link_inertial">
     <inertial>
       <mass value="2.235009"/>
@@ -335,6 +349,20 @@
       <mass value="1.597773"/>
       <inertia ixx="0.00439027267" ixy="6.743674e-05" ixz="0.00113816363" iyy="0.00743063029" iyz="-3.943143e-05" izz="0.00550906699" />
       <origin rpy="0 0 0" xyz="-0.02034668 0.00051514 -0.05987428"/>
+    </inertial>
+  </xacro:macro>
+  <xacro:macro name="ankle_right_ft_link_inertial">
+    <inertial>
+      <mass value="0.095"/>
+      <inertia ixx="1.108502e-05" ixy="9.9077e-07" ixz="-2.3811e-07" iyy="1.092725e-05" iyz="2.3137e-07" izz="1.898772e-05" />
+      <origin rpy="0 0 0" xyz="-0.001001 0.000995 -0.008108"/>
+    </inertial>
+  </xacro:macro>
+  <xacro:macro name="ankle_right_ft_tool_link_inertial">
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+      <origin rpy="0 0 0" xyz="0 0 0"/>
     </inertial>
   </xacro:macro>
   <xacro:macro name="rgbd_link_inertial">

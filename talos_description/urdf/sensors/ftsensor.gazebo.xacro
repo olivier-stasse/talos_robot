@@ -18,8 +18,10 @@
   <xacro:macro name="force_torque_sensor_gazebo" params="name update_rate">
 
     <gazebo reference="${name}_joint">
+      <provideFeedback>true</provideFeedback>
       <preserveFixedJoint>true</preserveFixedJoint> <!-- in case this is in a fixed joint -->
       <sensor name="${name}_sensor" type="force_torque">
+        <always_on>1</always_on>
         <update_rate>${update_rate}</update_rate>
         <visualize>true</visualize>
         <force_torque>

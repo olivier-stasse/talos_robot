@@ -37,8 +37,8 @@
     <xacro:imu_sensor_gazebo update_rate="1000.0"/>
     <xacro:force_torque_sensor_gazebo name="wrist_left_ft" update_rate="1000.0"/>
     <xacro:force_torque_sensor_gazebo name="wrist_right_ft" update_rate="1000.0"/>
-    <!-- <xacro:force_torque_sensor_gazebo name="ankle_left_ft" update_rate="1000.0"/>
-    <xacro:force_torque_sensor_gazebo name="ankle_right_ft" update_rate="1000.0"/> -->
+    <xacro:force_torque_sensor_gazebo name="ankle_left_ft" update_rate="1000.0"/>
+    <xacro:force_torque_sensor_gazebo name="ankle_right_ft" update_rate="1000.0"/>
 
   </xacro:macro>
 
