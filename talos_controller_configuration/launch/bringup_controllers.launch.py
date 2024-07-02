@@ -51,7 +51,6 @@ def generate_launch_description():
             pkg_share_folder,
             'wrist_right_ft_broadcaster.yaml'))
 
-
     # Force-torque sensors controller for the ankles
     ankle_left_ft_broadcaster_launch = generate_load_controller_launch_description(
         controller_name='ankle_left_ft_broadcaster',
@@ -82,7 +81,6 @@ def generate_launch_description():
     ld.add_action(wrist_right_ft_broadcaster_launch)
     ld.add_action(ankle_left_ft_broadcaster_launch)
     ld.add_action(ankle_right_ft_broadcaster_launch)
-    # TODO imu_sensor
-    # ld.add_action(imu_sensor_broadcaster_launch)
+    ld.add_action(imu_sensor_broadcaster_launch)
 
     return ld
