@@ -1,59 +1,59 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <root>
- <tabbed_widget name="Main Window" parent="main_window">
+ <tabbed_widget parent="main_window" name="Main Window">
   <Tab tab_name="forces" containers="1">
    <Container>
-    <DockSplitter count="1" sizes="1" orientation="-">
-     <DockSplitter count="2" sizes="0.5;0.5" orientation="|">
-      <DockSplitter count="2" sizes="0.5;0.5" orientation="-">
+    <DockSplitter orientation="-" sizes="1" count="1">
+     <DockSplitter orientation="|" sizes="0.5;0.5" count="2">
+      <DockSplitter orientation="-" sizes="0.5;0.5" count="2">
        <DockArea name="...">
-        <plot style="Lines" mode="TimeSeries" flip_x="false" flip_y="false">
-         <range right="12557.728444" top="0.100000" bottom="-0.100000" left="12542.718827"/>
+        <plot mode="TimeSeries" flip_y="false" style="Lines" flip_x="false">
+         <range bottom="-12.075616" right="12121.961766" top="0.708733" left="12101.960841"/>
          <limitY/>
-         <curve color="#1f77b4" name="/ankle_left_ft_broadcaster/wrench/wrench/force/x"/>
-         <curve color="#d62728" name="/ankle_left_ft_broadcaster/wrench/wrench/force/y"/>
-         <curve color="#1ac938" name="/ankle_left_ft_broadcaster/wrench/wrench/force/z"/>
-         <curve color="#ff7f0e" name="/ankle_left_ft_broadcaster/wrench/wrench/torque/x"/>
-         <curve color="#f14cc1" name="/ankle_left_ft_broadcaster/wrench/wrench/torque/y"/>
-         <curve color="#9467bd" name="/ankle_left_ft_broadcaster/wrench/wrench/torque/z"/>
+         <curve color="#9467bd" name="/wrist_left_ft_broadcaster/wrench/wrench/force/x"/>
+         <curve color="#17becf" name="/wrist_left_ft_broadcaster/wrench/wrench/force/y"/>
+         <curve color="#bcbd22" name="/wrist_left_ft_broadcaster/wrench/wrench/force/z"/>
+         <curve color="#1f77b4" name="/wrist_left_ft_broadcaster/wrench/wrench/torque/x"/>
+         <curve color="#d62728" name="/wrist_left_ft_broadcaster/wrench/wrench/torque/y"/>
+         <curve color="#1ac938" name="/wrist_left_ft_broadcaster/wrench/wrench/torque/z"/>
         </plot>
        </DockArea>
        <DockArea name="...">
-        <plot style="Lines" mode="TimeSeries" flip_x="false" flip_y="false">
-         <range right="12557.728444" top="0.100000" bottom="-0.100000" left="12542.718827"/>
+        <plot mode="TimeSeries" flip_y="false" style="Lines" flip_x="false">
+         <range bottom="-0.222565" right="12121.961766" top="8.526538" left="12101.960841"/>
          <limitY/>
-         <curve color="#f14cc1" name="/wrist_left_ft_broadcaster/wrench/wrench/force/x"/>
-         <curve color="#9467bd" name="/wrist_left_ft_broadcaster/wrench/wrench/force/y"/>
-         <curve color="#17becf" name="/wrist_left_ft_broadcaster/wrench/wrench/force/z"/>
-         <curve color="#bcbd22" name="/wrist_left_ft_broadcaster/wrench/wrench/torque/x"/>
-         <curve color="#1f77b4" name="/wrist_left_ft_broadcaster/wrench/wrench/torque/y"/>
-         <curve color="#d62728" name="/wrist_left_ft_broadcaster/wrench/wrench/torque/z"/>
+         <curve color="#d62728" name="/ankle_left_ft_broadcaster/wrench/wrench/force/x"/>
+         <curve color="#1ac938" name="/ankle_left_ft_broadcaster/wrench/wrench/force/y"/>
+         <curve color="#ff7f0e" name="/ankle_left_ft_broadcaster/wrench/wrench/force/z"/>
+         <curve color="#f14cc1" name="/ankle_left_ft_broadcaster/wrench/wrench/torque/x"/>
+         <curve color="#9467bd" name="/ankle_left_ft_broadcaster/wrench/wrench/torque/y"/>
+         <curve color="#17becf" name="/ankle_left_ft_broadcaster/wrench/wrench/torque/z"/>
         </plot>
        </DockArea>
       </DockSplitter>
-      <DockSplitter count="2" sizes="0.5;0.5" orientation="-">
+      <DockSplitter orientation="-" sizes="0.5;0.5" count="2">
        <DockArea name="...">
-        <plot style="Lines" mode="TimeSeries" flip_x="false" flip_y="false">
-         <range right="12557.728444" top="0.100000" bottom="-0.100000" left="12542.718827"/>
+        <plot mode="TimeSeries" flip_y="false" style="Lines" flip_x="false">
+         <range bottom="-12.075711" right="12121.961766" top="0.713137" left="12101.960841"/>
          <limitY/>
-         <curve color="#17becf" name="/ankle_right_ft_broadcaster/wrench/wrench/force/x"/>
-         <curve color="#bcbd22" name="/ankle_right_ft_broadcaster/wrench/wrench/force/y"/>
-         <curve color="#1f77b4" name="/ankle_right_ft_broadcaster/wrench/wrench/force/z"/>
-         <curve color="#d62728" name="/ankle_right_ft_broadcaster/wrench/wrench/torque/x"/>
-         <curve color="#1ac938" name="/ankle_right_ft_broadcaster/wrench/wrench/torque/y"/>
-         <curve color="#ff7f0e" name="/ankle_right_ft_broadcaster/wrench/wrench/torque/z"/>
+         <curve color="#ff7f0e" name="/wrist_right_ft_broadcaster/wrench/wrench/force/x"/>
+         <curve color="#f14cc1" name="/wrist_right_ft_broadcaster/wrench/wrench/force/y"/>
+         <curve color="#9467bd" name="/wrist_right_ft_broadcaster/wrench/wrench/force/z"/>
+         <curve color="#17becf" name="/wrist_right_ft_broadcaster/wrench/wrench/torque/x"/>
+         <curve color="#bcbd22" name="/wrist_right_ft_broadcaster/wrench/wrench/torque/y"/>
+         <curve color="#1f77b4" name="/wrist_right_ft_broadcaster/wrench/wrench/torque/z"/>
         </plot>
        </DockArea>
        <DockArea name="...">
-        <plot style="Lines" mode="TimeSeries" flip_x="false" flip_y="false">
-         <range right="12557.728444" top="0.100000" bottom="-0.100000" left="12542.718827"/>
+        <plot mode="TimeSeries" flip_y="false" style="Lines" flip_x="false">
+         <range bottom="-8.595617" right="12121.961766" top="3.031114" left="12101.960841"/>
          <limitY/>
-         <curve color="#1ac938" name="/wrist_right_ft_broadcaster/wrench/wrench/force/x"/>
-         <curve color="#ff7f0e" name="/wrist_right_ft_broadcaster/wrench/wrench/force/y"/>
-         <curve color="#f14cc1" name="/wrist_right_ft_broadcaster/wrench/wrench/force/z"/>
-         <curve color="#9467bd" name="/wrist_right_ft_broadcaster/wrench/wrench/torque/x"/>
-         <curve color="#17becf" name="/wrist_right_ft_broadcaster/wrench/wrench/torque/y"/>
-         <curve color="#bcbd22" name="/wrist_right_ft_broadcaster/wrench/wrench/torque/z"/>
+         <curve color="#bcbd22" name="/ankle_right_ft_broadcaster/wrench/wrench/force/x"/>
+         <curve color="#1f77b4" name="/ankle_right_ft_broadcaster/wrench/wrench/force/y"/>
+         <curve color="#d62728" name="/ankle_right_ft_broadcaster/wrench/wrench/force/z"/>
+         <curve color="#1ac938" name="/ankle_right_ft_broadcaster/wrench/wrench/torque/x"/>
+         <curve color="#ff7f0e" name="/ankle_right_ft_broadcaster/wrench/wrench/torque/y"/>
+         <curve color="#f14cc1" name="/ankle_right_ft_broadcaster/wrench/wrench/torque/z"/>
         </plot>
        </DockArea>
       </DockSplitter>
@@ -63,11 +63,11 @@
   </Tab>
   <Tab tab_name="imu" containers="1">
    <Container>
-    <DockSplitter count="2" sizes="0.5;0.5" orientation="-">
-     <DockSplitter count="2" sizes="0.5;0.5" orientation="|">
+    <DockSplitter orientation="-" sizes="0.5;0.5" count="2">
+     <DockSplitter orientation="|" sizes="0.5;0.5" count="2">
       <DockArea name="...">
-       <plot style="Lines" mode="TimeSeries" flip_x="false" flip_y="false">
-        <range right="12557.728155" top="0.044519" bottom="-0.005178" left="12542.859777"/>
+       <plot mode="TimeSeries" flip_y="false" style="Lines" flip_x="false">
+        <range bottom="-0.000573" right="12121.960710" top="0.001692" left="12101.960981"/>
         <limitY/>
         <curve color="#1f77b4" name="/imu_sensor_broadcaster/imu/angular_velocity/x"/>
         <curve color="#d62728" name="/imu_sensor_broadcaster/imu/angular_velocity/y"/>
@@ -75,8 +75,8 @@
        </plot>
       </DockArea>
       <DockArea name="...">
-       <plot style="Lines" mode="TimeSeries" flip_x="false" flip_y="false">
-        <range right="12557.728155" top="1.909944" bottom="-10.102723" left="12542.859777"/>
+       <plot mode="TimeSeries" flip_y="false" style="Lines" flip_x="false">
+        <range bottom="-9.943092" right="12121.960710" top="2.596577" left="12101.960981"/>
         <limitY/>
         <curve color="#ff7f0e" name="/imu_sensor_broadcaster/imu/linear_acceleration/x"/>
         <curve color="#f14cc1" name="/imu_sensor_broadcaster/imu/linear_acceleration/y"/>
@@ -85,8 +85,8 @@
       </DockArea>
      </DockSplitter>
      <DockArea name="...">
-      <plot style="Lines" mode="TimeSeries" flip_x="false" flip_y="false">
-       <range right="12557.728155" top="0.161412" bottom="-3.217979" left="12542.859777"/>
+      <plot mode="TimeSeries" flip_y="false" style="Lines" flip_x="false">
+       <range bottom="-0.232724" right="12121.960710" top="0.005677" left="12101.960981"/>
        <limitY/>
        <curve color="#17becf" name="/imu_sensor_broadcaster/imu/orientation/pitch"/>
        <curve color="#bcbd22" name="/imu_sensor_broadcaster/imu/orientation/roll"/>
@@ -96,14 +96,38 @@
     </DockSplitter>
    </Container>
   </Tab>
-  <currentTabIndex index="1"/>
+  <Tab tab_name="BaseWrench" containers="1">
+   <Container>
+    <DockSplitter orientation="-" sizes="0.5;0.5" count="2">
+     <DockArea name="...">
+      <plot mode="TimeSeries" flip_y="false" style="Lines" flip_x="false">
+       <range bottom="-0.064874" right="12121.961542" top="0.053494" left="12101.961933"/>
+       <limitY/>
+       <curve color="#d62728" name="/talos/base_link_wrench/wrench/force/x"/>
+       <curve color="#1ac938" name="/talos/base_link_wrench/wrench/force/y"/>
+       <curve color="#ff7f0e" name="/talos/base_link_wrench/wrench/force/z"/>
+      </plot>
+     </DockArea>
+     <DockArea name="...">
+      <plot mode="TimeSeries" flip_y="false" style="Lines" flip_x="false">
+       <range bottom="-0.042177" right="12121.961542" top="0.041552" left="12101.961933"/>
+       <limitY/>
+       <curve color="#f14cc1" name="/talos/base_link_wrench/wrench/torque/x"/>
+       <curve color="#9467bd" name="/talos/base_link_wrench/wrench/torque/y"/>
+       <curve color="#17becf" name="/talos/base_link_wrench/wrench/torque/z"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <currentTabIndex index="2"/>
  </tabbed_widget>
  <use_relative_time_offset enabled="1"/>
  <!-- - - - - - - - - - - - - - - -->
  <!-- - - - - - - - - - - - - - - -->
  <Plugins>
   <plugin ID="DataLoad CSV">
-   <parameters delimiter="0" time_axis=""/>
+   <parameters time_axis="" delimiter="0"/>
   </plugin>
   <plugin ID="DataLoad MCAP"/>
   <plugin ID="DataLoad ROS2 bags">
@@ -121,7 +145,7 @@
    <max_array_size value="100"/>
    <boolean_strings_to_number value="true"/>
    <remove_suffix_from_strings value="true"/>
-   <selected_topics value="/ankle_left_ft_broadcaster/wrench;/ankle_right_ft_broadcaster/wrench;/wrist_left_ft_broadcaster/wrench;/wrist_right_ft_broadcaster/wrench;/imu_sensor_broadcaster/imu"/>
+   <selected_topics value="/ankle_left_ft_broadcaster/wrench;/ankle_right_ft_broadcaster/wrench;/imu_sensor_broadcaster/imu;/talos/ankle_left_ft_sensor;/talos/ankle_right_ft_sensor;/talos/base_link_wrench;/talos/wrist_left_ft_sensor;/talos/wrist_right_ft_sensor;/wrist_left_ft_broadcaster/wrench;/wrist_right_ft_broadcaster/wrench"/>
   </plugin>
   <plugin ID="UDP Server"/>
   <plugin ID="WebSocket Server"/>
