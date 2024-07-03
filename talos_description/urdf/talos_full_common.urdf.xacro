@@ -55,8 +55,6 @@
 
   <xacro:talos_leg prefix="left"  reflect="1" flexibility="$(arg flexibility)"/>
   <xacro:talos_leg prefix="right" reflect="-1" flexibility="$(arg flexibility)"/>
-  <xacro:ft_sensor name="ankle" parent="leg_right_6_link" side="right" reflect="1"  />
-  <xacro:ft_sensor name="ankle" parent="leg_left_6_link"  side="left"  reflect="-1" />
 
   <xacro:talos_addons/>
   <xacro:talos_gazebo/>

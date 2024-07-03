@@ -16,8 +16,8 @@
  -->
  
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="ros2_control_force_torque_sensor" params="name">
-    <sensor name="${name}">
+  <xacro:macro name="ros2_control_force_torque_sensor" params="name side">
+    <sensor name="${name}_${side}_ft_sensor">
       <state_interface name="force.x"/>
       <state_interface name="force.y"/>
       <state_interface name="force.z"/>
@@ -26,4 +26,5 @@
       <state_interface name="torque.z"/>
     </sensor>
   </xacro:macro>
+
 </robot>

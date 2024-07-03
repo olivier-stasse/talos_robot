@@ -32,6 +32,7 @@
     <xacro:include filename="$(find talos_description_calibration)/urdf/calibration/calibration_constants.urdf.xacro" />
 
     <ros2_control name="ros2_control_talos_system" type="system">
+
       <hardware>
         <xacro:if value="$(arg use_sim)">
           <plugin>gazebo_ros2_control/GazeboSystem</plugin>
@@ -82,10 +83,10 @@
       <xacro:ros2_control_torso name="torso" number="2"/>
 
       <!-- Force Torque sensor-->
-      <xacro:ros2_control_force_torque_sensor name="wrist_right_ft_sensor"/>
-      <xacro:ros2_control_force_torque_sensor name="wrist_left_ft_sensor"/>
-      <xacro:ros2_control_force_torque_sensor name="ankle_right_ft_sensor"/>
-      <xacro:ros2_control_force_torque_sensor name="ankle_left_ft_sensor"/>
+      <xacro:ros2_control_force_torque_sensor name="wrist" side="right"/>
+      <xacro:ros2_control_force_torque_sensor name="wrist" side="left"/>
+      <xacro:ros2_control_force_torque_sensor name="ankle" side="right"/>
+      <xacro:ros2_control_force_torque_sensor name="ankle" side="left"/>
 
       <!-- Leg left -->
       <xacro:ros2_control_leg side="left" number="1" />

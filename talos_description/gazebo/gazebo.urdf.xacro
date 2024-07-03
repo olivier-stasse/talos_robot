@@ -21,10 +21,10 @@
   <xacro:include filename="$(find talos_description)/urdf/sensors/ftsensor.gazebo.xacro" />
 
   <xacro:macro name="talos_gazebo">
+
     <gazebo>
       <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-        <!-- in the future move this param file somewhere else -->
-        <parameters>$(find talos_controller_configuration)/config/gazebo_controller_manager_cfg.yaml</parameters>
+        <parameters>$(find talos_description)/config/gazebo_controller_manager_cfg.yaml</parameters>
         <xacro:if value="${is_multiple}">
           <!-- Do something about multirobot -->
         </xacro:if>
@@ -34,11 +34,26 @@
       </plugin>
     </gazebo>
 
+    <gazebo>
+      <plugin name="gazebo_ros_ft" filename="libgazebo_ros_ft_sensor.so">
+        <ros>
+          <!-- Add namespace and remap the default topic -->
+          <namespace>/talos</namespace>
+          <remapping>wrench:=base_link_wrench</remapping>
+        </ros>
+        <!-- Replace camelCase elements with camel_case ones -->
+        <body_name>base_link</body_name>
+        <frame_name>link</frame_name>
+        <update_rate>1000</update_rate>
+        <gaussian_noise>0.01</gaussian_noise>
+      </plugin>
+    </gazebo>
+
     <xacro:imu_sensor_gazebo update_rate="1000.0"/>
-    <xacro:force_torque_sensor_gazebo name="wrist_left_ft" update_rate="1000.0"/>
-    <xacro:force_torque_sensor_gazebo name="wrist_right_ft" update_rate="1000.0"/>
-    <xacro:force_torque_sensor_gazebo name="ankle_left_ft" update_rate="1000.0"/>
-    <xacro:force_torque_sensor_gazebo name="ankle_right_ft" update_rate="1000.0"/>
+    <xacro:force_torque_sensor_gazebo parent_joint_name="wrist_left_ft_joint" sensor_name="wrist_left_ft_sensor" update_rate="1000.0"/>
+    <xacro:force_torque_sensor_gazebo parent_joint_name="wrist_right_ft_joint" sensor_name="wrist_right_ft_sensor" update_rate="1000.0"/>
+    <xacro:force_torque_sensor_gazebo parent_joint_name="leg_left_6_joint" sensor_name="ankle_left_ft_sensor" update_rate="1000.0"/>
+    <xacro:force_torque_sensor_gazebo parent_joint_name="leg_right_6_joint" sensor_name="ankle_right_ft_sensor" update_rate="1000.0"/>
 
   </xacro:macro>
 
