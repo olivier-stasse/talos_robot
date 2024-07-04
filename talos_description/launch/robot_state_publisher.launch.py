@@ -106,7 +106,8 @@ def launch_setup(context, *args, **kwargs):
                 ),
                 "head_type": read_launch_argument("head_type", context),
                 "flexibility": read_launch_argument("flexibility", context),
-                "default_configuration_type": read_launch_argument("default_configuration_type", context),
+                "default_configuration_type": read_launch_argument(
+                    "default_configuration_type", context),
             },
         )
     }
