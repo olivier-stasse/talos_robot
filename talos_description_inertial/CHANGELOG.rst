@@ -2,6 +2,9 @@
 Changelog for package talos_description_inertial
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 1.1.31 (2024-04-18)
 -------------------
 * Merge branch 'fix-sign-inertias' into 'erbium-devel'
