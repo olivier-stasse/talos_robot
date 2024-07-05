@@ -3,3 +3,4 @@ ankle_right_ft_broadcaster:
     frame_id: ankle_right_ft_link
     sensor_name: ankle_right_ft_sensor
     update_rate: 50
+    publish_rate: 50

@@ -1,6 +1,7 @@
 joint_state_broadcaster:
   ros__parameters:
     update_rate: 50
+    publish_rate: 50
     map_interface_to_joint_state:
       effort: effort
       position: position
