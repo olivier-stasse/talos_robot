@@ -20,16 +20,6 @@
     <xacro:include filename="$(find talos_description)/test/calibration/calibration_constants.urdf.xacro" />
   </xacro:if>
 
-  <!-- Fixed world frame -->
-  <link name="world"/>
-
-  <joint name="world_fixed" type="fixed">
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <parent link="world"/>
-      <child link="base_link"/>
-  </joint>
-
-
  <!--Constant parameters-->
   <xacro:property name="torso_max_vel"  value="5.4" />
   <xacro:property name="torso_max_effort"  value="200.0" />

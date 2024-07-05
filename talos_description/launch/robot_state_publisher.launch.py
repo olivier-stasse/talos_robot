@@ -27,6 +27,10 @@ from launch_ros.actions import Node
 
 def declare_args(context, *args, **kwargs):
 
+    fixed_base_arg = DeclareLaunchArgument(
+        "use_fixed_base", default_value="True", description="Fix the robot in the air."
+    )
+
     sim_time_arg = DeclareLaunchArgument(
         "use_sim_time", default_value="False", description="Use simulation time"
     )
@@ -80,6 +84,7 @@ def declare_args(context, *args, **kwargs):
         default_configuration_type,
         sim_time_arg,
         flexibility,
+        fixed_base_arg,
     ]
 
 
@@ -96,6 +101,7 @@ def launch_setup(context, *args, **kwargs):
                 )
             ),
             {
+                "use_fixed_base": read_launch_argument("use_fixed_base", context),
                 "use_sim": read_launch_argument("use_sim_time", context),
                 "test": read_launch_argument("test", context),
                 "robot_model": read_launch_argument("robot_model", context),
