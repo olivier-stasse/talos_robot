@@ -22,22 +22,22 @@ from launch_pal.include_utils import include_launch_py_description
 
 def generate_launch_description():
 
-    pkg_share_folder = os.path.join(
-        get_package_share_directory('talos_controller_configuration'), 'config')
-
     # Joint torque state controller
     joint_torque_sensor_launch = generate_load_controller_launch_description(
         controller_name='joint_torque_sensor_state_controller',
         controller_type='joint_torque_sensor_state_controller/JointStateTorqueSensorController',
         controller_params_file=os.path.join(
-            get_package_share_directory('joint_torque_sensor_state_controller'), 'joint_torque_sensor_state_controller.yaml')
+            get_package_share_directory('joint_torque_sensor_state_controller'),
+            'joint_torque_sensor_state_controller.yaml')
     )
+
     # Temperature sensor controller
     temperature_sensor_controller_launch = generate_load_controller_launch_description(
         controller_name='temperature_sensor_controller',
         controller_type='temperature_sensor_controller/TemperatureSensorController',
         controller_params_file=os.path.join(
-            get_package_share_directory('temperature_sensor_controller'), 'temperature_sensor_controller.yaml'))
+            get_package_share_directory('temperature_sensor_controller'),
+            'temperature_sensor_controller.yaml'))
 
     # Mode state controller
     mode_state_controller_launch = generate_load_controller_launch_description(
