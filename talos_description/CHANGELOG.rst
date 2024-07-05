@@ -2,8 +2,8 @@
 Changelog for package talos_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.1.32 (2024-07-05)
+-------------------
 * Fix build_depends for talos_description
 * Contributors: Mathias Lüdtke
 
