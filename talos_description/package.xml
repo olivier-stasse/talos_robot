@@ -11,6 +11,8 @@
   <buildtool_depend>catkin</buildtool_depend>
   <buildtool_depend>xacro</buildtool_depend>
 
+  <build_depend>talos_description_calibration</build_depend>
+  <build_depend>talos_description_inertial</build_depend>
 
   <exec_depend>talos_description_calibration</exec_depend>
   <exec_depend>talos_description_inertial</exec_depend>
