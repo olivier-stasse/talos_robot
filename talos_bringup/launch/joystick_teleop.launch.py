@@ -26,7 +26,7 @@ from launch_ros.actions import Node
 def launch_setup(context, *args, **kwargs):
 
     joy_teleop_path = os.path.join(
-        get_package_share_directory('talos_bringup'), 'config', 'joy_teleop.yaml')
+        get_package_share_directory('talos_bringup'), 'config', 'joy_teleop', 'joy_teleop.yaml')
 
     declare_teleop_config = DeclareLaunchArgument(
         'teleop_config', default_value=joy_teleop_path,
@@ -49,10 +49,10 @@ def generate_launch_description():
         description='Joystick cmd_vel topic')
 
     joy_node = Node(
-        package='joy',
-        executable='joy_node',
+        package='joy_linux',
+        executable='joy_linux_node',
         name='joystick',
-        parameters=[os.path.join(pkg_dir, 'config', 'joy_config.yaml'),
+        parameters=[os.path.join(pkg_dir, 'config', 'joy_teleop', 'joy_config.yaml'),
                     {'autorepeat_rate': 10}])
 
     torso_incrementer_server = Node(
