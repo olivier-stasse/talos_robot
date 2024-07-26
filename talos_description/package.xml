@@ -13,6 +13,8 @@
   
   <exec_depend>xacro</exec_depend>
 
+  <build_depend condition="$PAL_DISTRO >= alum">pal_module_cmake</build_depend>
+
   <exec_depend>talos_description_calibration</exec_depend>
   <exec_depend>talos_description_inertial</exec_depend>
 
