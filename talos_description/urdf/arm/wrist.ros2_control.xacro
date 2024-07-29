@@ -15,8 +15,29 @@
   limitations under the License.
  -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="ros2_control_wrist" params="name side number" >
-    <joint name="${name}_${side}_${number}_joint">
+  <!--File includes-->
+  <xacro:include filename="$(find talos_description)/urdf/arm/wrist.transmission.xacro" />
+
+  <xacro:macro name="ros2_control_wrist" params="name side joint_5_offset joint_6_offset joint_7_offset" >
+    <joint name="${name}_${side}_5_joint">
+      <command_interface name="position" />
+      <command_interface name="velocity" />
+      <command_interface name="effort" />
+
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+    <joint name="${name}_${side}_6_joint">
+      <command_interface name="position" />
+      <command_interface name="velocity" />
+      <command_interface name="effort" />
+
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+    <joint name="${name}_${side}_7_joint">
       <command_interface name="position" />
       <command_interface name="velocity" />
       <command_interface name="effort" />
@@ -26,8 +47,14 @@
       <state_interface name="effort" />
     </joint>
 
-   <!-- transmissions -->
-   <xacro:include filename="$(find talos_description)/urdf/arm/${side}_wrist.transmissions.urdf.xacro" />
+    <!-- transmissions -->
+  <xacro:talos_wrist_simple_transmission name="${name}" side="${side}" number="5" reduction="1.0"
+                                         offset_value="${joint_5_offset}"/>
+  <xacro:talos_wrist_differential_transmission name="${name}" side="${side}" number_1="6" number_2="7"
+                                                act_reduction_1="-1.0" act_reduction_2="1.0"
+                                                jnt_reduction_1="-1.0" jnt_reduction_2="-1.0"
+                                                offset_value_1="${joint_6_offset}"
+                                                offset_value_2="${joint_7_offset}"/>
 
   </xacro:macro>
 </robot>
