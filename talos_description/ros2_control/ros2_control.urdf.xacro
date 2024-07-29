@@ -27,6 +27,7 @@
     <xacro:include filename="$(find talos_description)/urdf/torso/torso.ros2_control.xacro" />
     <xacro:include filename="$(find talos_description)/urdf/sensors/imu.ros2_control.xacro" />
     <xacro:include filename="$(find talos_description)/urdf/sensors/ftsensor.ros2_control.xacro" />
+    <xacro:include filename="$(find talos_description_calibration)/urdf/calibration/calibration_constants.urdf.xacro" />
 
     <!-- Calibration offsets -->
     <xacro:include filename="$(find talos_description_calibration)/urdf/calibration/calibration_constants.urdf.xacro" />
@@ -49,10 +50,10 @@
       </xacro:if>
 
       <!-- arm right-->
-      <xacro:ros2_control_arm name="arm" side="right" number="1"/>
-      <xacro:ros2_control_arm name="arm" side="right" number="2"/>
-      <xacro:ros2_control_arm name="arm" side="right" number="3"/>
-      <xacro:ros2_control_arm name="arm" side="right" number="4"/>
+      <xacro:ros2_control_arm name="arm" side="right" number="1" joint_offset="${arm_right_1_joint_offset}"/>
+      <xacro:ros2_control_arm name="arm" side="right" number="2" joint_offset="${arm_right_2_joint_offset}"/>
+      <xacro:ros2_control_arm name="arm" side="right" number="3" joint_offset="${arm_right_3_joint_offset}"/>
+      <xacro:ros2_control_arm name="arm" side="right" number="4" joint_offset="${arm_right_4_joint_offset}"/>
 
       <!-- Wrist right -->
       <xacro:ros2_control_wrist name="arm" side="right" number="5"/>
@@ -60,10 +61,10 @@
       <xacro:ros2_control_wrist name="arm" side="right" number="7"/>
 
       <!-- Arm left-->
-      <xacro:ros2_control_arm name="arm" side="left" number="1"/>
-      <xacro:ros2_control_arm name="arm" side="left" number="2"/>
-      <xacro:ros2_control_arm name="arm" side="left" number="3"/>
-      <xacro:ros2_control_arm name="arm" side="left" number="4"/>
+      <xacro:ros2_control_arm name="arm" side="left" number="1" joint_offset="${arm_left_1_joint_offset}"/>
+      <xacro:ros2_control_arm name="arm" side="left" number="2" joint_offset="${arm_left_2_joint_offset}"/>
+      <xacro:ros2_control_arm name="arm" side="left" number="3" joint_offset="${arm_left_3_joint_offset}"/>
+      <xacro:ros2_control_arm name="arm" side="left" number="4" joint_offset="${arm_left_4_joint_offset}"/>
 
       <!-- Wrist left -->
       <xacro:ros2_control_wrist name="arm" side="left" number="5"/>
