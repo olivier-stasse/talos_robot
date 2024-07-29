@@ -76,8 +76,7 @@
       <xacro:ros2_control_head name="head" number_1="1" number_2="2" offset_value_1="${head_1_joint_yaw_offset}" offset_value_2="${head_2_joint_yaw_offset}"/>
 
       <!-- Torso -->
-      <xacro:ros2_control_torso name="torso" number="1"/>
-      <xacro:ros2_control_torso name="torso" number="2"/>
+      <xacro:ros2_control_torso name="torso"/>
 
       <!-- Force Torque sensor-->
       <xacro:ros2_control_force_torque_sensor name="wrist" side="right"/>
