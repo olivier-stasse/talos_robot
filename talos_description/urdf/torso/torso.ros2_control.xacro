@@ -15,8 +15,18 @@
   limitations under the License.
  -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="ros2_control_torso" params="name number" >
-    <joint name="${name}_${number}_joint">
+  <xacro:macro name="ros2_control_torso" params="name joint_1:='1' joint_2:='2'">
+    <joint name="${name}_${joint_1}_joint">
+      <command_interface name="position" />
+      <command_interface name="velocity" />
+      <command_interface name="effort" />
+
+      <state_interface name="position" />
+      <state_interface name="velocity" />
+      <state_interface name="effort" />
+    </joint>
+
+    <joint name="${name}_${joint_2}_joint">
       <command_interface name="position" />
       <command_interface name="velocity" />
       <command_interface name="effort" />
@@ -28,7 +38,7 @@
 
     <!-- transmissions -->
     <xacro:include filename="$(find talos_description)/urdf/torso/torso.transmission.xacro" />
-    <xacro:talos_torso_differential_transmission name="${name}" number1="1" number2="2"
+    <xacro:talos_torso_differential_transmission name="${name}" number1="${joint_1}" number2="${joint_2}"
                                                 act_reduction1="1.0" act_reduction2="1.0"
                                                 jnt_reduction1="1.0" jnt_reduction2="1.0" />
   </xacro:macro>

@@ -15,7 +15,10 @@
   limitations under the License.
  -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="ros2_control_arm" params="name side number" >
+  <!--File includes-->
+  <xacro:include filename="$(find talos_description)/urdf/arm/arm.transmission.xacro" />
+
+  <xacro:macro name="ros2_control_arm" params="name side number joint_offset" >
     <joint name="${name}_${side}_${number}_joint">
       <command_interface name="position" />
       <command_interface name="velocity" />
@@ -27,7 +30,7 @@
     </joint>
 
    <!-- transmissions -->
-  <xacro:include filename="$(find talos_description)/urdf/arm/${side}_arm.transmissions.urdf.xacro" />
+  <xacro:talos_arm_simple_transmission name="${name}" side="${side}" number="${number}" reduction="1.0" offset_value="${joint_offset}"/>
 
   </xacro:macro>
 </robot>
