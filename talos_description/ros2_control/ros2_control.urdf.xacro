@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- 
+<!--
   Copyright (c) 2023 PAL Robotics S.L. All rights reserved.
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -101,5 +101,15 @@
       <xacro:ros2_control_leg side="right" number="6" />
 
     </ros2_control>
+
+    <xacro:unless value="$(arg use_sim)">
+      <ros2_control name="ros2_control_orientus" type="sensor">
+        <hardware>
+          <plugin>pal_orientus_sensor/OrientusSensor</plugin>
+          <param name="io_device">/dev/ttyS4</param>
+        </hardware>
+      </ros2_control>
+    </xacro:unless>
+
   </xacro:macro>
 </robot>
