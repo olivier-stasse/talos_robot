@@ -17,9 +17,37 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch_pal.include_utils import include_launch_py_description
 from launch.actions import DeclareLaunchArgument
-
+from launch.substitutions import LaunchConfiguration
 
 def generate_launch_description():
+
+    fixed_base_arg = DeclareLaunchArgument(
+        "fixed_base", default_value="False", description="Fix the robot in the air."
+    )
+
+    sim_time_arg = DeclareLaunchArgument(
+        "sim_time", default_value="False", description="Use simulation time"
+    )
+
+    enable_crane_arg = DeclareLaunchArgument(
+        "enable_crane", default_value="False", description="Enable crane"
+    )
+
+    head_type_arg = DeclareLaunchArgument(
+        "head_type", default_value="default", description="Head type"
+    )
+
+    disable_gazebo_camera_arg = DeclareLaunchArgument(
+        "disable_gazebo_camera",
+        default_value="False",
+        description="Enable/Disable camera in simulation",
+    )
+
+    default_configuration_type_arg = DeclareLaunchArgument(
+        "default_configuration_type",
+        default_value="zeros",
+        description="configuration of the robot",
+    )
 
     talos_common_hardware_path = os.path.join(
         get_package_share_directory('talos_bringup'), 'config', 'talos_common_hardware.yaml')
@@ -42,6 +70,14 @@ def generate_launch_description():
 
     talos_state_publisher = include_launch_py_description(
         "talos_description", ["launch", "robot_state_publisher.launch.py"],
+        launch_arguments={
+          'fixed_base': LaunchConfiguration('fixed_base'),
+          'sim_time': LaunchConfiguration('sim_time'),
+          'enable_crane': LaunchConfiguration('enable_crane'),
+          'head_type': LaunchConfiguration('head_type'),
+          'disable_gazebo_camera': LaunchConfiguration('disable_gazebo_camera'),
+          'default_configuration_type': LaunchConfiguration('default_configuration_type'),
+        }.items()
     )
 
     bringup_controllers_hardware = include_launch_py_description(
@@ -50,6 +86,12 @@ def generate_launch_description():
     )
 
     ld = LaunchDescription()
+    ld.add_action(fixed_base_arg)
+    ld.add_action(enable_crane_arg)
+    ld.add_action(head_type_arg)
+    ld.add_action(disable_gazebo_camera_arg)  
+    ld.add_action(default_configuration_type_arg)
+    ld.add_action(sim_time_arg)
     ld.add_action(talos_state_publisher)
     ld.add_action(bringup_controllers)
     ld.add_action(play_motion2)

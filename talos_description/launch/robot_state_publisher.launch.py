@@ -28,62 +28,62 @@ from launch_ros.actions import Node
 def declare_args(context, *args, **kwargs):
 
     fixed_base_arg = DeclareLaunchArgument(
-        "use_fixed_base", default_value="True", description="Fix the robot in the air."
+        "fixed_base", default_value="False", description="Fix the robot in the air."
     )
 
     sim_time_arg = DeclareLaunchArgument(
-        "use_sim_time", default_value="False", description="Use simulation time"
+        "sim_time", default_value="False", description="Use simulation time"
     )
 
-    robot_model = DeclareLaunchArgument(
+    robot_model_arg = DeclareLaunchArgument(
         "robot_model", default_value="full_v2", description="Robot model"
     )
-    flexibility = DeclareLaunchArgument(
+    flexibility_arg = DeclareLaunchArgument(
         "flexibility", default_value="False", description="Enable the flexibility for the leg")
 
-    foot_collision = DeclareLaunchArgument(
-        "foot_collision", default_value="default", description="Collision foot"
+    foot_collision_arg = DeclareLaunchArgument(
+        "foot_collision", default_value="thinbox", description="Collision foot"
     )
 
-    enable_crane = DeclareLaunchArgument(
+    enable_crane_arg = DeclareLaunchArgument(
         "enable_crane", default_value="False", description="Enable crane"
     )
 
-    head_type = DeclareLaunchArgument(
+    head_type_arg = DeclareLaunchArgument(
         "head_type", default_value="default", description="Head type"
     )
 
-    parameter_name = DeclareLaunchArgument(
+    parameter_name_arg = DeclareLaunchArgument(
         "parameter_name",
         default_value="robot_description",
         description="Robot description",
     )
 
-    disable_gazebo_camera = DeclareLaunchArgument(
+    disable_gazebo_camera_arg = DeclareLaunchArgument(
         "disable_gazebo_camera",
         default_value="False",
         description="Enable/Disable camera in simulation",
     )
 
-    test = DeclareLaunchArgument(
+    test_arg = DeclareLaunchArgument(
         "test", default_value="False", description="test")
 
-    default_configuration_type = DeclareLaunchArgument(
+    default_configuration_type_arg = DeclareLaunchArgument(
         "default_configuration_type",
         default_value="zeros",
         description="configuration of the robot",
     )
     return [
-        robot_model,
-        foot_collision,
-        enable_crane,
-        head_type,
-        parameter_name,
-        disable_gazebo_camera,
-        test,
-        default_configuration_type,
+        robot_model_arg,
+        foot_collision_arg,
+        enable_crane_arg,
+        head_type_arg,
+        parameter_name_arg,
+        disable_gazebo_camera_arg,
+        test_arg,
+        default_configuration_type_arg,
         sim_time_arg,
-        flexibility,
+        flexibility_arg,
         fixed_base_arg,
     ]
 
@@ -101,8 +101,8 @@ def launch_setup(context, *args, **kwargs):
                 )
             ),
             {
-                "use_fixed_base": read_launch_argument("use_fixed_base", context),
-                "use_sim": read_launch_argument("use_sim_time", context),
+                "use_fixed_base": read_launch_argument("fixed_base", context),
+                "use_sim": read_launch_argument("sim_time", context),
                 "test": read_launch_argument("test", context),
                 "robot_model": read_launch_argument("robot_model", context),
                 "enable_crane": read_launch_argument("enable_crane", context),
@@ -123,7 +123,7 @@ def launch_setup(context, *args, **kwargs):
         executable="robot_state_publisher",
         output="both",
         parameters=[
-            {"use_sim_time": LaunchConfiguration("use_sim_time")},
+            {"use_sim_time": LaunchConfiguration("sim_time")},
             {"publish_frequency": 100.0},
             robot_description,
         ],
