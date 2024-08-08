@@ -1,5 +1,6 @@
 leg_right_controller:
   ros__parameters:
+    type: "joint_trajectory_controller/JointTrajectoryController"
     joints:
       - leg_right_1_joint
       - leg_right_2_joint

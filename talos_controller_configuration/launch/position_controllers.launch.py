@@ -34,7 +34,6 @@ def generate_launch_description():
         [
             generate_load_controller_launch_description(
                 controller_name='torso_controller',
-                controller_type='joint_trajectory_controller/JointTrajectoryController',
                 controller_params_file=os.path.join(
                     pkg_share_folder,
                     'config/joint_trajectory_controllers', 'torso_controller.yaml'
@@ -70,7 +69,6 @@ def generate_launch_description():
     head_controller_launch = GroupAction(
         [generate_load_controller_launch_description(
             controller_name='head_controller',
-            controller_type='joint_trajectory_controller/JointTrajectoryController',
             controller_params_file=os.path.join(
                 pkg_share_folder,
                 'config/joint_trajectory_controllers', 'head_controller.yaml'))
@@ -102,7 +100,6 @@ def generate_launch_description():
     arm_right_controller_launch = GroupAction(
         [generate_load_controller_launch_description(
             controller_name='arm_right_controller',
-            controller_type='joint_trajectory_controller/JointTrajectoryController',
             controller_params_file=os.path.join(
                 pkg_share_folder,
                 'config/joint_trajectory_controllers', 'arm_right_controller.yaml'))
@@ -128,7 +125,6 @@ def generate_launch_description():
     arm_left_controller_launch = GroupAction(
         [generate_load_controller_launch_description(
             controller_name='arm_left_controller',
-            controller_type='joint_trajectory_controller/JointTrajectoryController',
             controller_params_file=os.path.join(
                 pkg_share_folder,
                 'config/joint_trajectory_controllers', 'arm_left_controller.yaml'))
@@ -152,7 +148,6 @@ def generate_launch_description():
     end_effector_right_controller_launch = GroupAction(
         [generate_load_controller_launch_description(
             controller_name='gripper_right_controller',
-            controller_type='joint_trajectory_controller/JointTrajectoryController',
             controller_params_file=os.path.join(
                 pkg_share_folder,
                 'config/joint_trajectory_controllers', 'gripper_right_controller.yaml'))
@@ -178,7 +173,6 @@ def generate_launch_description():
     end_effector_left_controller_launch = GroupAction(
         [generate_load_controller_launch_description(
             controller_name='gripper_left_controller',
-            controller_type='joint_trajectory_controller/JointTrajectoryController',
             controller_params_file=os.path.join(
                 pkg_share_folder,
                 'config/joint_trajectory_controllers', 'gripper_left_controller.yaml'))
