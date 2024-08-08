@@ -26,48 +26,40 @@ def generate_launch_description():
 
     torso_limit_controller_launch = generate_load_controller_launch_description(
         controller_name='torso_current_limit_controller',
-        controller_type='pal_ros_controllers/CurrentLimitController',
         controller_params_file=yaml_file
     )
 
     head_limit_controller_launch = generate_load_controller_launch_description(
         controller_name='head_current_limit_controller',
-        controller_type='pal_ros_controllers/CurrentLimitController',
         controller_params_file=yaml_file
     )
     arm_left_limit_controller_launch = generate_load_controller_launch_description(
         controller_name='arm_left_current_limit_controller',
-        controller_type='pal_ros_controllers/CurrentLimitController',
         controller_params_file=yaml_file
     )
 
     arm_right_limit_controller_launch = generate_load_controller_launch_description(
         controller_name='arm_right_current_limit_controller',
-        controller_type='pal_ros_controllers/CurrentLimitController',
         controller_params_file=yaml_file
     )
 
     gripper_left_limit_controller_launch = generate_load_controller_launch_description(
         controller_name='gripper_left_current_limit_controller',
-        controller_type='pal_ros_controllers/CurrentLimitController',
         controller_params_file=yaml_file
     )
 
     gripper_right_limit_controller_launch = generate_load_controller_launch_description(
         controller_name='gripper_right_current_limit_controller',
-        controller_type='pal_ros_controllers/CurrentLimitController',
         controller_params_file=yaml_file
     )
 
     leg_left_limit_controller_launch = generate_load_controller_launch_description(
         controller_name='leg_left_current_limit_controller',
-        controller_type='pal_ros_controllers/CurrentLimitController',
         controller_params_file=yaml_file
     )
 
     leg_right_limit_controller_launch = generate_load_controller_launch_description(
         controller_name='leg_right_current_limit_controller',
-        controller_type='pal_ros_controllers/CurrentLimitController',
         controller_params_file=yaml_file
     )
 

@@ -1,5 +1,6 @@
 state_estimation_controller:
   ros__parameters:
+    type: "pal_base_ros_controller/StateEstimationController"
     fts:
       - 'ankle_left_ft'
       - 'ankle_right_ft'
@@ -28,6 +29,7 @@ state_estimation_controller:
 
 state_estimation_controller_broadcaster:
   ros__parameters:
+    type: "pal_base_ros_controller/StateEstimationControllerBroadcaster"
     robot_physics_model:
       plugin_type: 'RBDL'
       base_type: 'FLOATING'

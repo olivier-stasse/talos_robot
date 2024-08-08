@@ -1,5 +1,6 @@
 init_offset_controller:
   ros__parameters:
+    type: "reemc_controllers/ReemcInitOffsetController"
     joints:
       - leg_left_1_joint
       - leg_left_2_joint

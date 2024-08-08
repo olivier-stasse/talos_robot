@@ -45,7 +45,6 @@ def generate_launch_description():
     )
     walking_controller_launch = generate_load_controller_launch_description(
         controller_name='walking_controller',
-        controller_type='walking_controller/ReemcControl',
         controller_params_file=os.path.join(
             pkg_share_folder,
             'walking_controller.yaml'))

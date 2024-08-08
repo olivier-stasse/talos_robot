@@ -33,13 +33,11 @@ def generate_launch_description():
 
     est_ctrl_spawner = generate_load_controller_launch_description(
         controller_name='state_estimation_controller',
-        controller_type='pal_base_ros_controller/StateEstimationController',
         controller_params_file=estimation_controller_ros_yaml
     )
 
     est_ctrl_bc_spawner = generate_load_controller_launch_description(
         controller_name='state_estimation_controller_broadcaster',
-        controller_type='pal_base_ros_controller/StateEstimationControllerBroadcaster',
         controller_params_file=estimation_controller_ros_yaml
     )
 

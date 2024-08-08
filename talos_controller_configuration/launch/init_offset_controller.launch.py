@@ -26,7 +26,6 @@ def generate_launch_description():
 
     init_offset_controller_launch = generate_load_controller_launch_description(
         controller_name='init_offset_controller',
-        controller_type='reemc_controllers/ReemcInitOffsetController',
         controller_params_file=yaml_file
     )
 
