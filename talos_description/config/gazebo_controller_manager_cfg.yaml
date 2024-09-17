@@ -11,7 +11,7 @@ gazebo_ros2_control:
         leg_left_2_joint: {kp:  5000.0, kd: 20.0, ki:  5.0, max_integral_error: 10000.0}
         leg_left_3_joint: {kp:  5000.0, kd: 20.0, ki:  5.0, max_integral_error: 10000.0}
         leg_left_4_joint: {kp:  5000.0, kd: 20.0, ki:  5.0, max_integral_error: 10000.0}
-        leg_left_5_joint: {kp:  5000, kd: 20.0, ki:  5.0, max_integral_error: 10000.0}
+        leg_left_5_joint: {kp:  5000.0, kd: 20.0, ki:  5.0, max_integral_error: 10000.0}
         leg_left_6_joint: {kp:  5000.0, kd: 20.0, ki:  5.0, max_integral_error: 10000.0}
         leg_right_1_joint: {kp:  5000.0, kd: 20.0, ki:  5.0, max_integral_error: 10000.0}
         leg_right_2_joint: {kp:  5000.0, kd: 20.0, ki:  5.0, max_integral_error: 10000.0}
