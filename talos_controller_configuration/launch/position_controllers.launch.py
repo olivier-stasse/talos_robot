@@ -47,8 +47,6 @@ def generate_launch_description():
                      'robot_model'), "' == 'lower_body_torso' or '",
                  LaunchConfiguration('robot_model'), "' == 'full_v2' or '",
                  LaunchConfiguration(
-                     'robot_model'), "' == 'lower_body' or '",
-                 LaunchConfiguration(
                      'robot_model'), "' == 'lower_body_torso_head' or '",
                  LaunchConfiguration(
                      'robot_model'), "' == 'torso_leg_right' or '",
@@ -87,15 +85,9 @@ def generate_launch_description():
                  LaunchConfiguration(
                      'robot_model'), "' == 'lower_body_torso_head' or '",
                  LaunchConfiguration(
-                     'robot_model'), "' == 'torso_leg_right' or '",
-                 LaunchConfiguration(
                      'robot_model'), "' == 'torso_leg_left' or '",
                  LaunchConfiguration(
-                     'robot_model'), "' == 'upper_body' or '",
-                 LaunchConfiguration(
-                     'robot_model'), "' == 'upper_body_leg_left' or '",
-                 LaunchConfiguration(
-                     'robot_model'), "' == 'upper_body_leg_right'"
+                     'robot_model'), "' == 'upper_body_leg_left'"
                  ]
             )
         )
@@ -125,12 +117,6 @@ def generate_launch_description():
                  LaunchConfiguration(
                      'robot_model'), "' == 'torso_leg_right' or '",
                  LaunchConfiguration(
-                     'robot_model'), "' == 'torso_leg_left' or '",
-                 LaunchConfiguration(
-                     'robot_model'), "' == 'upper_body' or '",
-                 LaunchConfiguration(
-                     'robot_model'), "' == 'upper_body_leg_left' or '",
-                 LaunchConfiguration(
                      'robot_model'), "' == 'upper_body_leg_right'"
                  ]
             )
@@ -151,8 +137,6 @@ def generate_launch_description():
                  LaunchConfiguration(
                      'robot_model'), "' == 'lower_body_head_arms' or '",
                  LaunchConfiguration('robot_model'), "' == 'full_v2' or '",
-                 LaunchConfiguration(
-                     'robot_model'), "' == 'lower_body' or '",
                  LaunchConfiguration(
                      'robot_model'), "' == 'lower_body_torso_head' or '",
                  LaunchConfiguration(
