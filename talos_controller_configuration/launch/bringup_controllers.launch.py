@@ -64,12 +64,6 @@ def generate_launch_description():
         controller_params_file=os.path.join(
             pkg_share_folder,
             'imu_sensor_broadcaster.yaml'))
-    
-    # Default controller
-    default_controller_launch = include_launch_py_description(
-        "talos_controller_configuration",
-        ["launch", "default_controllers.launch.py"],
-    )
 
     ld = LaunchDescription()
 
@@ -79,6 +73,5 @@ def generate_launch_description():
     ld.add_action(ankle_left_ft_broadcaster_launch)
     ld.add_action(ankle_right_ft_broadcaster_launch)
     ld.add_action(imu_sensor_broadcaster_launch)
-    ld.add_action(default_controller_launch)
 
     return ld
