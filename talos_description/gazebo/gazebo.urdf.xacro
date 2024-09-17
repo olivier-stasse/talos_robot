@@ -24,6 +24,7 @@
 
     <gazebo>
       <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+        <hold_joints>false</hold_joints>
         <parameters>$(find talos_description)/config/gazebo_controller_manager_cfg.yaml</parameters>
         <xacro:if value="${is_multiple}">
           <!-- Do something about multirobot -->
