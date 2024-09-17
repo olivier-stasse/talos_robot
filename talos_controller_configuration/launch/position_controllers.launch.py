@@ -17,12 +17,11 @@ import os
 from launch import LaunchDescription
 from launch.actions import GroupAction
 
-from launch_pal.robot_utils import get_robot_name
 from ament_index_python.packages import get_package_share_directory
 from controller_manager.launch_utils import generate_load_controller_launch_description
-from launch.actions import DeclareLaunchArgument
-from launch.conditions import IfCondition, LaunchConfigurationEquals
+from launch.conditions import IfCondition
 from launch.substitutions import LaunchConfiguration, PythonExpression
+from launch_pal.robot_arguments import CommonArgs
 
 
 def generate_launch_description():
@@ -267,7 +266,7 @@ def generate_launch_description():
 
     ld = LaunchDescription()
 
-    ld.add_action(get_robot_name('talos'))
+    ld.add_action(CommonArgs.robot_name)
 
     ld.add_action(torso_controller_launch)
     ld.add_action(head_controller_launch)
