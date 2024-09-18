@@ -2,6 +2,21 @@
 Changelog for package talos_description_inertial
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'ros2-migration' into 'humble-devel'
+  Ros2 migration
+  See merge request robots/talos_robot!130
+* add force sensor at the feet
+* Try to add the ankle FT sensors for Talos and connect them to ros2_control
+* update inertia signs
+* working version with default position controllers
+* visualization of the arm right model
+* config files for talos_description
+* migration of CMakeLists.txt and package.xml to ros2 -
+  description_inertial
+* Contributors: Maximilien Naveau, Sai Kishor Kothakota, ileniaperrella
+
 1.1.30 (2023-11-08)
 -------------------
 

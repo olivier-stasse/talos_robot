@@ -2,6 +2,49 @@
 Changelog for package talos_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'ros2-migration' into 'humble-devel'
+  Ros2 migration
+  See merge request robots/talos_robot!130
+* removed the default controllers from the bringup launch
+* remove the unused args
+* Change from the robot_utils to CommonArgs in launch_pal
+* Add both leg position controllers into the position_controllers launch
+* Update rest of the controller type parameters into the config files
+* update the configurations of the broadcasters
+* remove unnecessary non-existing controller launch and config
+* move the controller type to the config files for the position controllers
+* Comment out the non migrated dependencies
+* Cleanup some import and start the default controller from the start.
+* make sure the rate parameter is taken into account.
+* Update the plotjuggler view to include the joint state
+* Reduce the update_rate of the broadcasters
+* Update the plot_juggler session on sensors debugging
+* add the imu to ro2_control
+* [talos_controller_configuration] add all F/T broadcasters and the estimator parameters and launcher.
+* [talos_descirption] Try to add the force sensors at the feet
+* set default position controllers arg full_v2 model
+* remove default_controllers (position for now) from bringup controllers
+* remove leg position controllers frfom position_controllers.launch.py
+* fix jtc yaml files
+* update gripper mimic joint and sensors
+* clean launch files
+* remove python script
+* initialisation script added
+* conf files for sensors
+* bringup controllers
+* working version with default position controllers
+* fix force_torque_sensor controller name
+* migrate all the basic launch files
+* update all the config file for controller_configuration
+* Merge branch 'feat/ros2controlcli_dependency' into 'humble-devel'
+  Add ros2controlcli dependency
+  See merge request robots/talos_robot!129
+* Add ros2controlcli dependency
+* migration of CMakeLists.txt and package.xml to ros2 - controller_config.
+* Contributors: Jordan Palacios, Maximilien Naveau, Noel Jimenez, Sai Kishor Kothakota, ileniaperrella
+
 1.1.30 (2023-11-08)
 -------------------
 * Merge branch 'smooth_position_control' into 'erbium-devel'

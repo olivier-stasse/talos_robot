@@ -2,6 +2,11 @@
 Changelog for package talos_robot
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* migration of CMakeLists.txt and package.xml to ros2 - metapkg
+* Contributors: ileniaperrella
+
 1.1.30 (2023-11-08)
 -------------------
 

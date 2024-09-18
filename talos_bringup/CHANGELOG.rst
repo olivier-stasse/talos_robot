@@ -2,6 +2,29 @@
 Changelog for package talos_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'ros2-migration' into 'humble-devel'
+  Ros2 migration
+  See merge request robots/talos_robot!130
+* Change from the robot_utils to CommonArgs in launch_pal
+* Propagate arg from gazebo launch to robot_state_publisher
+* Merge branch 'tpe/joy_linux_fix' into 'ros2-migration'
+  Add the fix Joy_linux node and default device
+  See merge request robots/talos_robot!132
+* Add the fix Joy_linux node and default device
+* removed the unused hardware config files
+* fix yaml formatting
+* update all the talos motions with the script
+* fix twist mux
+* fix bringup_controllers
+* enable play_motion2
+* working version with default position controllers
+* migrate all the basic launch files
+* configs file bringup + motions
+* migration of CMakeLists.txt and package.xml to ros2 - bringup
+* Contributors: Adrià Roig, Maximilien Naveau, Sai Kishor Kothakota, ileniaperrella, thomas.peyrucain
+
 1.1.30 (2023-11-08)
 -------------------
 * Merge branch 'play_motion_carry' into 'erbium-devel'

@@ -2,6 +2,17 @@
 Changelog for package talos_description_calibration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'ros2-migration' into 'humble-devel'
+  Ros2 migration
+  See merge request robots/talos_robot!130
+* visualization of the arm right model
+* config files for talos_description
+* migration of CMakeLists.txt and package.xml to ros2 -
+  description_calibration
+* Contributors: Sai Kishor Kothakota, ileniaperrella
+
 1.1.30 (2023-11-08)
 -------------------
 

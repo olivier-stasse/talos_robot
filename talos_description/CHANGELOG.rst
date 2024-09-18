@@ -2,6 +2,53 @@
 Changelog for package talos_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'ros2-migration' into 'humble-devel'
+  Ros2 migration
+  See merge request robots/talos_robot!130
+* Fix the leg_left_5_joint parameter to be double
+* Parse the PID config file to the gazebo_ros2_control ROS 2 node
+* Add position PID parameters config file
+  https://github.com/ros-controls/gazebo_ros2_control/pull/374 is merged
+* Set hold_joints to false
+* Propagate arg from gazebo launch to robot_state_publisher
+* Adding orientus sensor when launching the robot
+* Fixed torso transmission actuator name
+* Commenting gripper mimic joints not working in real robot
+* Merge branch 'fix/talos/transmissions/ros2' into 'ros2-migration'
+  Fix/talos/transmissions/ros2
+  See merge request robots/talos_robot!133
+* Fix the torso transmission duplication in ros2_control xacro
+* Fix the wrist transmission of the ros2_control xacro
+* fix the arm transmission ros2_control xacro
+* Adding robot_state_publisher module
+* Remove invalid and unnecessary dependencies
+* Add the possibility to start the simulation with a fixed base or not.
+* Export the odometry of the base from gazebo
+* [format]
+* add force sensor at the feet
+* Try to add the ankle FT sensors for Talos and connect them to ros2_control
+* [talos_descirption] Try to add the force sensors at the feet
+* Remove colons from urdf comments
+* fix talos_description CMakeLists
+* delete useless gazebo plugin for talos
+* enable play_motion2
+* update gripper mimic joint and sensors
+* imu sensor ros2_control
+* add talos_controller_configuration depend.
+* add sensors in ros2_control
+* working version with default position controllers
+* fix publish_frequency passed value (double and not a string)
+* fix torso and head ros2_control
+* migrate all the basic launch files
+* visualization complete for all the models of TALOS
+* make available the spawn of the full_fake_grippers and no_grippers
+* visualization of the arm right model
+* config files for talos_description
+* migration of CMakeLists.txt and package.xml to ros2 - description
+* Contributors: Adrià Roig, Jordan Palacios, Maximilien Naveau, Sai Kishor Kothakota, ileniaperrella
+
 1.1.30 (2023-11-08)
 -------------------
 
