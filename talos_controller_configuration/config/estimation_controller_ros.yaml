@@ -1,0 +1,35 @@
+state_estimation_controller:
+  ros__parameters:
+    type: "pal_base_ros_controller/StateEstimationController"
+    fts:
+      - 'ankle_left_ft'
+      - 'ankle_right_ft'
+    chainable_controller:
+      command_prefix: "state_estimation_controller_broadcaster"
+      ankle_left_ft:
+        frame_name: 'ankle_left_ft_link'
+        sensor_name: 'ankle_left_ft_sensor'
+      ankle_right_ft:
+        frame_name: 'ankle_right_ft_link'
+        sensor_name: 'ankle_right_ft_sensor'
+      imu_sensor_name: 'imu_sensor'
+    contact_estimator:
+      plugin_name: 'contact_estimator::FTContactEstimator'
+      yaml_file: 'package://talos_controller_configuration/config/estimation_controller_ariles.yaml'
+      yaml_namespace: '/talos_estimation/contact_estimator'
+    floating_base_state_estimator:
+      period: 0.010 # 10ms
+      plugin_name: 'kinematic_state_estimator::KinematicStateEstimator'
+      spawn_thread: true
+      yaml_file: 'package://talos_controller_configuration/config/estimation_controller_ariles.yaml'
+      yaml_namespace: '/talos_estimation/floating_base_estimator'
+    robot_physics_model:
+      plugin_type: 'RBDL'
+      base_type: 'FLOATING'
+
+state_estimation_controller_broadcaster:
+  ros__parameters:
+    type: "pal_base_ros_controller/StateEstimationControllerBroadcaster"
+    robot_physics_model:
+      plugin_type: 'RBDL'
+      base_type: 'FLOATING'
