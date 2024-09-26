@@ -2,6 +2,9 @@
 Changelog for package talos_bringup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 2.0.0 (2024-09-18)
 ------------------
 * Merge branch 'ros2-migration' into 'humble-devel'

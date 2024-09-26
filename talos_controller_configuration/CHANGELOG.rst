@@ -2,6 +2,14 @@
 Changelog for package talos_controller_configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'migration_bugfix' into 'humble-devel'
+  Migration Bugfixing
+  See merge request robots/talos_robot!134
+* fix typo
+* Contributors: Sai Kishor Kothakota, sergiacosta
+
 2.0.0 (2024-09-18)
 ------------------
 * Merge branch 'ros2-migration' into 'humble-devel'
